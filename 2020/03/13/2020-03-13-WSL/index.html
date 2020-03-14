@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://uestcljx.github.io">
-  <title>Archives: 2020 | Jiangxin-Li</title>
+  <title>WSL大法好 | Jiangxin-Li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="三尺微命，一介书生。求学于蓉城西边，清水河畔。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jiangxin-Li">
-<meta property="og:url" content="https://uestcljx.github.io/archives/2020/index.html">
+  <meta name="description" content="我为什么想到用Linux系统？因为我想为这个网站加一个photos plugin. 而这种photos plugin需要一个依赖库。当我在Windows系统下尝试安装这个依赖库多次失败后，卑微的我决定求助于Linux系统Orz。。。 众所周知, Linux系统可以下载很多无法兼容Windows系统的Linux专用软件，而且安装过程极其极其简单，也有极小极小的概率出错（相比Windows）。这是Li">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WSL大法好">
+<meta property="og:url" content="https://uestcljx.github.io/2020/03/13/2020-03-13-WSL/index.html">
 <meta property="og:site_name" content="Jiangxin-Li">
-<meta property="og:description" content="三尺微命，一介书生。求学于蓉城西边，清水河畔。">
+<meta property="og:description" content="我为什么想到用Linux系统？因为我想为这个网站加一个photos plugin. 而这种photos plugin需要一个依赖库。当我在Windows系统下尝试安装这个依赖库多次失败后，卑微的我决定求助于Linux系统Orz。。。 众所周知, Linux系统可以下载很多无法兼容Windows系统的Linux专用软件，而且安装过程极其极其简单，也有极小极小的概率出错（相比Windows）。这是Li">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-03-14T12:03:30.508Z">
 <meta property="article:author" content="Jiangxin-Li">
-<meta property="article:tag" content="蒟蒻">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
   
   
@@ -164,36 +166,40 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2020-03-13-WSL" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/13/2020-03-13-WSL/" class="archive-article-date">
-  	<time datetime="2020-03-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/13/2020-03-13-WSL/">WSL大法好</a>
+    <h1 class="article-title" itemprop="name">
+      WSL大法好
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/03/13/2020-03-13-WSL/" class="archive-article-date">
+  	<time datetime="2020-03-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="我为什么想到用Linux系统？"><a href="#我为什么想到用Linux系统？" class="headerlink" title="我为什么想到用Linux系统？"></a>我为什么想到用Linux系统？</h2><p>因为我想为这个网站加一个photos plugin. 而这种photos plugin需要一个依赖库。当我在Windows系统下尝试安装这个依赖库多次失败后，卑微的我决定求助于Linux系统Orz。。。</p>
+<p><del>众所周知,</del> Linux系统可以下载很多无法兼容Windows系统的Linux专用软件，而且安装过程极其极其简单，也有极小极小的概率出错（相比Windows）。这是Linux系统的巨大优势之一。</p>
+<h2 id="双系统？虚拟机？WSL"><a href="#双系统？虚拟机？WSL" class="headerlink" title="双系统？虚拟机？WSL!"></a>双系统？虚拟机？WSL!</h2><p>目前在Windows系统上想使用Linux系统，主流方法是双系统或者虚拟机。然鹅，双系统配置太麻烦，有点小题大做；而虚拟机因为只能分到较少的资源，所以卡顿很明显。还有些在Windows上模拟Linux的封装器如Git Bash，CYGWIN等也不够完善，总是会有各种各样的issues。<br>于是，为了解决各种不足，Windows推出了大杀器，可以说是目前最好的解决方案之一。它就是本文的主角：WSL。</p>
+<a id="more"></a>
+<p>WSL (Windows Subsystem for Linux) 是在Windows系统上的一个应用，中文我们把它叫作Linux子系统。与其他方案不同，WSL不是封装器或是模拟器，它是在Windows文件系统上运行的本地Linux发行版(Ubuntu, CentOS…) 。这样可以克服其他方案存在的各种问题。我们可以利用Linux子系统下载各种Linux专用软件到Linux的文件系统。而WSL的最大的精髓在于，它能够让这些在Linux文件系统中的Linux专用软件能够读写Windows文件系统。</p>
+<h2 id="如何用好WSL"><a href="#如何用好WSL" class="headerlink" title="如何用好WSL?"></a>如何用好WSL?</h2><p>WSL的精髓设计可以说重新定义了在Windows系统下的workflow: 正常情况下我们都在Windows系统上写代码存数据。当我们要用Linux软件时，切换到Linux子系统用Linux命令方便地下载，再回到Windows系统上继续写代码存数据，当我们运行代码时——由于Linux软件能够读写Windows文件系统——运行环境也就如同在Linux环境中一样了。就是这么简单！逻辑上就好像所有Linux软件都能兼容Windows系统了（当然，实际并不是）。因此，大部分开发代码跟数据都存在Windows文件系统中，而各种Linux软件都存在Linux文件系统中。<br>你可能会问为什么不直接抛弃Windows，直接把代码数据什么的全部弄到Linux上就完事了。确实有不少高级程序员是这样做的。然而像我们这种刚入门的蒟蒻对Windows系统的GUI仍然比较依赖。而且Windows能活到现在说明它肯定有Linux系统无法取代的优越性。WSL实际上综合了这两个系统的优势，让用户能在两个系统中近乎无缝切换。<br>这里，附上大神编写的WSL快速入门指南: <a href="https://github.com/michaeltreat/Windows-Subsystem-For-Linux-Setup-Guide" target="_blank" rel="noopener">WSL入门教程(全英文)</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -205,141 +211,127 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://uestcljx.github.io/2020/03/13/2020-03-13-WSL/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/06/2020-03-06-NN/" class="archive-article-date">
-  	<time datetime="2020-03-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/06/2020-03-06-NN/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">神经网络 = 一劳永逸</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/06/2020-03-06-NN/">神经网络 = 一劳永逸</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">神经网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/22/2020-02-22-AllinAI/" class="archive-article-date">
-  	<time datetime="2020-02-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-22</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/22/2020-02-22-AllinAI/">是否应该 All in AI</a>
-    </h1>
-  
+    <!-- LiveRe City install code -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80OTA5MC8yNTU4NQ==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
+       if (typeof LivereTower === 'function') { return; }
 
-          
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/18/2020-02-18-helloworld/" class="archive-article-date">
-  	<time datetime="2020-02-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/18/2020-02-18-helloworld/">Hello World</a>
-    </h1>
-  
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> Please activate JavaScript for write a comment in LiveRe</noscript>
+</div>
+<!-- completed City install code -->
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
     
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -372,8 +364,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
