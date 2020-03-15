@@ -79,7 +79,7 @@ var _hmt = _hmt || [];
 	        
 				<li><a href="/photos">相册</a></li>
 	        
-				<li><a href="/liuyan">留言</a></li>
+				<li><a href="/liuyan">留言板</a></li>
 	        
 			</ul>
 		</nav>
@@ -157,7 +157,7 @@ var _hmt = _hmt || [];
 		        
 					<li style="width: 33.333333333333336%"><a href="/photos">相册</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/liuyan">留言</a></li>
+					<li style="width: 33.333333333333336%"><a href="/liuyan">留言板</a></li>
 		        
 				</ul>
 			</nav>
@@ -337,24 +337,24 @@ var _hmt = _hmt || [];
             avatar:"retro"
         });
     }
-    document.body.addEventListener('click', function(e) {
-    if (e.target.classList.contains('vsubmit')) {
-        const email = document.querySelector('input[type=email]');
-        const nick = document.querySelector('input[name=nick]');
-        const reg = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
-        if (!email.value || !nick.value || !reg.test(email.value)) {
-            const str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
-            const vmark = document.querySelector('.vmark');
-            vmark.innerHTML = str;
-            vmark.style.display = 'block';
+    // document.body.addEventListener('click', function(e) {
+    // if (e.target.classList.contains('vsubmit')) {
+    //     const email = document.querySelector('input[type=email]');
+    //     const nick = document.querySelector('input[name=nick]');
+    //     const reg = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    //     if (!email.value || !nick.value || !reg.test(email.value)) {
+    //         const str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
+    //         const vmark = document.querySelector('.vmark');
+    //         vmark.innerHTML = str;
+    //         vmark.style.display = 'block';
 
-            setTimeout(function() {
-                vmark.style.display = 'none';
-                vmark.innerHTML = '';
-            }, 2500);
-        }
-    }
-    });
+    //         setTimeout(function() {
+    //             vmark.style.display = 'none';
+    //             vmark.innerHTML = '';
+    //         }, 2500);
+    //     }
+    // }
+    // });
 </script>
 
   </section>
