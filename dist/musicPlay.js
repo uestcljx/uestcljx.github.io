@@ -48,7 +48,7 @@ const ap = new APlayer({
         },
         {
             name: 'We will rock you',
-            artist: 'Imagine Dragons',
+            artist: 'Queen',
             url: 'http://freetyst.nf.migu.cn/public/product4th/product36/2019/09/0923/2018%E5%B9%B408%E6%9C%8823%E6%97%A515%E7%82%B956%E5%88%86%E5%86%85%E5%AE%B9%E5%87%86%E5%85%A5SONY957%E9%A6%96/%E6%A0%87%E6%B8%85%E9%AB%98%E6%B8%85/MP3_320_16_Stero/6005970UHFT.mp3?channelid=03&k=7222e3d191a51453&t=1584458423&msisdn=f59b10c3-dc78-429b-9e76-e8a40dff4d78',
             cover: 'https://cdnmusic.migu.cn/picture/2020/0305/0900/ALf768d16c2229fdfa1130ae19e08fa032.jpg',
             lrc: '/./dist/music/lrc/rockyou.lrc',
