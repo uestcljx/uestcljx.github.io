@@ -253,6 +253,90 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-2020-03-21-Sort" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/13/2020-03-21-Sort/">快速排序两种实现方式</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/13/2020-03-21-Sort/" class="archive-article-date">
+  	<time datetime="2020-03-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <br>
+
+
+<h2 id="快速排序基本思想"><a href="#快速排序基本思想" class="headerlink" title="快速排序基本思想"></a>快速排序基本思想</h2><p>快速排序来自于一个很巧妙的思想，那就是以某个数为轴心，小于轴心的数分到前面，大于轴心的数分到后面。<br>这样一来轴心就处于了正确的位置，之后它的位置不会再发生变化。<br>但是，小于和大于轴心的那两堆数还可能处于无序状态，所以要对这两堆数继续快速排序，因此快排适合递归实现。<br>快排的基本思想超级简单，但是稍微需要思考的是如何实现前面提到的“分到前面”、“分到后面”。</p>
+<h2 id="快速排序中的划分"><a href="#快速排序中的划分" class="headerlink" title="快速排序中的划分"></a>快速排序中的划分</h2><p>现在假定我们选数组的第一个数为轴心，我们要把它后面的所有数进行划分，小的分到它前面，大的分到它后面。<br>怎么实现？逐一与轴心比较，小的插入到轴心前，大的就不管了？<br>大的不管当然很好，但是小的做插入显然太慢，需要O(N)的复杂度。<br>这里就用到了一个巧妙的思想——不让轴心参与划分，直接先忽略它。把小的和大的分好阵营后留出一个分界点，再把轴心插进去就行了。<br>WTF???这说得容易你给爷整一个试试？？？<br>骚年别慌，这里就要请出一个有用的trick——双指针了。</p>
+        
+          <a class="article-more-a" href="/2020/03/13/2020-03-21-Sort/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/13/2020-03-21-Sort/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2020-03-06-NN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -617,6 +701,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
             
             <div class="clearfix"></div>

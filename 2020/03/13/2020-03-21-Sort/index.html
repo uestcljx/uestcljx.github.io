@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://uestcljx.github.io">
-  <title>Tag: 深度学习 | Jiangxin-Li</title>
+  <title>快速排序两种实现方式 | Jiangxin-Li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="三尺微命，一介书生。求学于蓉城西边，清水河畔。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jiangxin-Li">
-<meta property="og:url" content="https://uestcljx.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/index.html">
+  <meta name="description" content="快速排序基本思想快速排序来自于一个很巧妙的思想，那就是以某个数为轴心，小于轴心的数分到前面，大于轴心的数分到后面。这样一来轴心就处于了正确的位置，之后它的位置不会再发生变化。但是，小于和大于轴心的那两堆数还可能处于无序状态，所以要对这两堆数继续快速排序，因此快排适合递归实现。快排的基本思想超级简单，但是稍微需要思考的是如何实现前面提到的“分到前面”、“分到后面”。 快速排序中的划分现在假定我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快速排序两种实现方式">
+<meta property="og:url" content="https://uestcljx.github.io/2020/03/13/2020-03-21-Sort/index.html">
 <meta property="og:site_name" content="Jiangxin-Li">
-<meta property="og:description" content="三尺微命，一介书生。求学于蓉城西边，清水河畔。">
+<meta property="og:description" content="快速排序基本思想快速排序来自于一个很巧妙的思想，那就是以某个数为轴心，小于轴心的数分到前面，大于轴心的数分到后面。这样一来轴心就处于了正确的位置，之后它的位置不会再发生变化。但是，小于和大于轴心的那两堆数还可能处于无序状态，所以要对这两堆数继续快速排序，因此快排适合递归实现。快排的基本思想超级简单，但是稍微需要思考的是如何实现前面提到的“分到前面”、“分到后面”。 快速排序中的划分现在假定我">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-03-21T14:33:17.428Z">
 <meta property="article:author" content="Jiangxin-Li">
-<meta property="article:tag" content="蒟蒻">
+<meta property="article:tag" content="数据结构与算法">
+<meta property="article:tag" content="排序">
 <meta name="twitter:card" content="summary">
   
   
@@ -170,106 +173,216 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2020-03-21-Sort" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/06/2020-03-06-NN/" class="archive-article-date">
-  	<time datetime="2020-03-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/06/2020-03-06-NN/">神经网络 = 一劳永逸</a>
+    <h1 class="article-title" itemprop="name">
+      快速排序两种实现方式
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/03/13/2020-03-21-Sort/" class="archive-article-date">
+  	<time datetime="2020-03-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <br>
+
+
+<h2 id="快速排序基本思想"><a href="#快速排序基本思想" class="headerlink" title="快速排序基本思想"></a>快速排序基本思想</h2><p>快速排序来自于一个很巧妙的思想，那就是以某个数为轴心，小于轴心的数分到前面，大于轴心的数分到后面。<br>这样一来轴心就处于了正确的位置，之后它的位置不会再发生变化。<br>但是，小于和大于轴心的那两堆数还可能处于无序状态，所以要对这两堆数继续快速排序，因此快排适合递归实现。<br>快排的基本思想超级简单，但是稍微需要思考的是如何实现前面提到的“分到前面”、“分到后面”。</p>
+<h2 id="快速排序中的划分"><a href="#快速排序中的划分" class="headerlink" title="快速排序中的划分"></a>快速排序中的划分</h2><p>现在假定我们选数组的第一个数为轴心，我们要把它后面的所有数进行划分，小的分到它前面，大的分到它后面。<br>怎么实现？逐一与轴心比较，小的插入到轴心前，大的就不管了？<br>大的不管当然很好，但是小的做插入显然太慢，需要O(N)的复杂度。<br>这里就用到了一个巧妙的思想——不让轴心参与划分，直接先忽略它。把小的和大的分好阵营后留出一个分界点，再把轴心插进去就行了。<br>WTF???这说得容易你给爷整一个试试？？？<br>骚年别慌，这里就要请出一个有用的trick——双指针了。</p>
+<a id="more"></a>
+<p>设两个指针为s指针和t指针，刚开始分别指向第二个元素（轴心后面那个元素）和最后一个元素<br>t指针向前移动直到遇到比轴心小的数，停止；s指针向后移动直到遇到比轴心大的数，停止；交换两个指针所指的数。然后两个指针继续移动，直到相遇。<br>很明显，小的数都被换到前面去了，大的数都被换到后面去了。分界点自然就是相遇点了。<br>但是我们要让分界点和轴心交换，前提就是要分界点数比轴心数小。这是非常重要的细节。能保证这一点的做法就是先移动t指针，原因很简单，动动脑子~<br>这样就完成了一趟快排的划分。</p>
+<h2 id="快速排序的细节处理"><a href="#快速排序的细节处理" class="headerlink" title="快速排序的细节处理"></a>快速排序的细节处理</h2><p>快速排序基本思想简单，划分方法也还能接受。但它最微妙的部分在于各种实现细节的考量。下面列举几点。<br>第一，轴心选择。如果按照前述，选第一个作为轴心，当数组为完全逆序的时候，快速排序将变得很慢，复杂度为O(N^2)。更安全的选择是用随机数生成器随机选轴心。更高级的做法是三点中值法，将起点、中点、终点的中值，这种做法也就是《数据结构与算法分析——C语言描述》中的实现方法。<br>第二，上文提到的先移动哪个指针的问题，不再赘述。需要注意的是，如果做了预排序，那么就能避免这一微妙的问题。比如三点中值法中对三个点进行预排序。</p>
+<h2 id="Coding"><a href="#Coding" class="headerlink" title="Coding"></a>Coding</h2><p>Talk is cheap, show me the code.<br><br><br>下面两种实现我都在<a href="https://www.luogu.com.cn/problem/P1177" target="_blank" rel="noopener">洛谷P1177</a>写了一遍，记下以后参考。</p>
+<h3 id="pivot取法为随机数法"><a href="#pivot取法为随机数法" class="headerlink" title="pivot取法为随机数法"></a>pivot取法为随机数法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (left &gt;= right)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> i = left, j = right, pivot = rand() % (right - left + <span class="number">1</span>) + left;</span><br><span class="line">    swap(a[left], a[pivot]);</span><br><span class="line">    <span class="keyword">while</span> (i &lt; j)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (j &gt; i &amp;&amp; a[j] &gt;= a[left])</span><br><span class="line">            j--;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; j &amp;&amp; a[i] &lt;= a[left])</span><br><span class="line">            i++;</span><br><span class="line">        swap(a[i], (i == j) ? a[left] : a[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    quickSort(a, left, i<span class="number">-1</span>);</span><br><span class="line">    quickSort(a, j+<span class="number">1</span>, right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="pivot取法为三点中值法"><a href="#pivot取法为三点中值法" class="headerlink" title="pivot取法为三点中值法"></a>pivot取法为三点中值法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 快速排序递归实现。pivot的值固定为三点中值，所谓三点，指的是起点、中点、终点。</span></span><br><span class="line"><span class="comment">所以不是二分划分，这种方法要求pivot不参与划分基准条件为数据段长度&lt;=3，</span></span><br><span class="line"><span class="comment">等于pivot也要停止移动并等待交换，否则需要判断越界，且划分的两个数组很不均衡 */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">median3</span><span class="params">(<span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span>&#123; <span class="comment">// 三点中值法，隐藏pivot</span></span><br><span class="line">    <span class="keyword">int</span> mid = (left+right)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(a[left]&gt;a[mid]) swap(a[left],a[mid]);</span><br><span class="line">    <span class="keyword">if</span>(a[left]&gt;a[right]) swap(a[left],a[right]);</span><br><span class="line">    <span class="keyword">if</span>(a[mid]&gt;a[right]) swap(a[mid],a[right]);</span><br><span class="line">    swap(a[mid],a[right<span class="number">-1</span>]);</span><br><span class="line">    <span class="keyword">return</span> a[right<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort3</span><span class="params">(<span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span>&#123; <span class="comment">// 三个数排序</span></span><br><span class="line">    <span class="keyword">int</span> mid = (left+right)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(a[left]&gt;a[mid]) swap(a[left],a[mid]);</span><br><span class="line">    <span class="keyword">if</span>(a[left]&gt;a[right]) swap(a[left],a[right]);</span><br><span class="line">    <span class="keyword">if</span>(a[mid]&gt;a[right]) swap(a[mid],a[right]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quick_sort</span><span class="params">(<span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(left+<span class="number">2</span>&gt;=right)&#123;</span><br><span class="line">        sort3(left,right);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> pivot = median3(left,right);</span><br><span class="line">    <span class="keyword">int</span> i=left, j=right<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">while</span>(a[--j]&gt;pivot);</span><br><span class="line">        <span class="keyword">while</span>(a[++i]&lt;pivot);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(i&lt;j)&#123;</span><br><span class="line">            swap(a[i],a[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    swap(a[i],a[right<span class="number">-1</span>]);</span><br><span class="line">    quick_sort(left,i<span class="number">-1</span>);</span><br><span class="line">    quick_sort(i+<span class="number">1</span>,right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">神经网络</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://uestcljx.github.io/2020/03/13/2020-03-21-Sort/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/22/2020-02-22-AllinAI/" class="archive-article-date">
-  	<time datetime="2020-02-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-22</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/03/13/2020-03-13-WSL/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          WSL大法好
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/06/2020-03-06-NN/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">神经网络 = 一劳永逸</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/22/2020-02-22-AllinAI/">是否应该 All in AI</a>
-    </h1>
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "RXk5cxUXPCYzrnEFbxM6EUEH-gzGzoHsz",
+            app_key: "aqV8PeavEMHrl4u8lVemUlfR",
+            placeholder: "欢迎留言😋",
+            path:window.location.pathname, 
+            avatar:"retro"
+        });
+    }
+    // document.body.addEventListener('click', function(e) {
+    // if (e.target.classList.contains('vsubmit')) {
+    //     const email = document.querySelector('input[type=email]');
+    //     const nick = document.querySelector('input[name=nick]');
+    //     const reg = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    //     if (!email.value || !nick.value || !reg.test(email.value)) {
+    //         const str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
+    //         const vmark = document.querySelector('.vmark');
+    //         vmark.innerHTML = str;
+    //         vmark.style.display = 'block';
+
+    //         setTimeout(function() {
+    //             vmark.style.display = 'none';
+    //             vmark.innerHTML = '';
+    //         }, 2500);
+    //     }
+    // }
+    // });
+</script>
+
+  </section>
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -303,9 +416,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
