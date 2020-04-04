@@ -62,5 +62,61 @@ const ap = new APlayer({
             lrc: '/./dist/music/lrc/hsgj.lrc',
         theme: '#46718b'
         },
+        {
+            name: '东风破',
+            artist: '周杰伦',
+            url: 'http://freetyst.nf.migu.cn/public/product8th/product38/2020/01/0718/2009%E5%B9%B406%E6%9C%8826%E6%97%A5%E5%8D%9A%E5%B0%94%E6%99%AE%E6%96%AF/%E6%A0%87%E6%B8%85%E9%AB%98%E6%B8%85/MP3_320_16_Stero/60054701925.mp3?channelid=03&k=ac15d28bec100a03&t=1585880953&msisdn=3a37cad7-478a-4f76-9bda-268923067e12',
+            cover: 'https://cdnmusic.migu.cn/picture/2019/1125/1028/ALe2de34dab7c04adc8cd48025339c46c5.jpg',
+            lrc: '/./dist/music/lrc/dfp.lrc',
+        theme: '#46718b'
+        },
+        {
+            name: '兰亭序',
+            artist: '周杰伦',
+            url: 'http://freetyst.nf.migu.cn/public/product5th/product35/2019/10/2820/2009%E5%B9%B406%E6%9C%8826%E6%97%A5%E5%8D%9A%E5%B0%94%E6%99%AE%E6%96%AF/%E6%A0%87%E6%B8%85%E9%AB%98%E6%B8%85/MP3_320_16_Stero/60054702006.mp3?channelid=03&k=2e9474d44c4cef35&t=1585881162&msisdn=a3d7333a-45be-44f1-b422-8a5b1ef757c9',
+            cover: 'https://cdnmusic.migu.cn/picture/2019/1031/0116/AL3f169c1d25854897bed1453a6aead54c.jpg',
+            lrc: '/./dist/music/lrc/ltx.lrc',
+        theme: '#46718b'
+        },
+        {
+            name: '一路向北',
+            artist: '周杰伦',
+            url: 'http://freetyst.nf.migu.cn/public/product11/2018/06/21/2009%E5%B9%B406%E6%9C%8826%E6%97%A5%E5%8D%9A%E5%B0%94%E6%99%AE%E6%96%AF/%E6%AD%8C%E6%9B%B2%E4%B8%8B%E8%BD%BD/MP3_320_16_Stero/%E4%B8%80%E8%B7%AF%E5%90%91%E5%8C%97-%E5%91%A8%E6%9D%B0%E4%BC%A6.mp3?channelid=03&k=cce31daecbeab974&t=1585881247&msisdn=afa6f585-c476-4e54-93c0-ab485b79ba50',
+            cover: 'https://cdnmusic.migu.cn/picture/2019/1125/1028/ALe2de34dab7c04adc8cd48025339c46c5.jpg',
+            lrc: '/./dist/music/lrc/ylxb.lrc',
+        theme: '#46718b'
+        },
+        {
+            name: '止战之殇',
+            artist: '周杰伦',
+            url: 'http://freetyst.nf.migu.cn/public/product5th/product35/2019/11/0822/2009%E5%B9%B406%E6%9C%8826%E6%97%A5%E5%8D%9A%E5%B0%94%E6%99%AE%E6%96%AF/%E6%A0%87%E6%B8%85%E9%AB%98%E6%B8%85/MP3_320_16_Stero/60054701943.mp3?channelid=03&k=725fe658a5453698&t=1585881485&msisdn=ea240bdc-9eef-4a5c-8e3d-5e61eeec7714',
+            cover: 'https://cdnmusic.migu.cn/picture/2019/1108/2207/AL2fc0b9eec0a24d3c9c77ed9ee133ffc4.jpg',
+            lrc: '/./dist/music/lrc/zzzs.lrc',
+        theme: '#46718b'
+        },
+        {
+            name: '七里香',
+            artist: '周杰伦',
+            url: 'http://freetyst.nf.migu.cn/public/product5th/product35/2019/10/1618/2009%E5%B9%B406%E6%9C%8826%E6%97%A5%E5%8D%9A%E5%B0%94%E6%99%AE%E6%96%AF/%E6%A0%87%E6%B8%85%E9%AB%98%E6%B8%85/MP3_320_16_Stero/60054701934.mp3?channelid=03&k=c9b5e28a90880f39&t=1585881536&msisdn=38bc114d-0034-47da-90fa-68008164558d',
+            cover: 'https://cdnmusic.migu.cn/picture/2019/1108/2207/AL2fc0b9eec0a24d3c9c77ed9ee133ffc4.jpg',
+            lrc: '/./dist/music/lrc/qlx.lrc',
+        theme: '#46718b'
+        },
+        {
+            name: '以父之名',
+            artist: '周杰伦',
+            url: 'http://freetyst.nf.migu.cn/public/product5th/product34/2019/07/2320/2009%E5%B9%B406%E6%9C%8826%E6%97%A5%E5%8D%9A%E5%B0%94%E6%99%AE%E6%96%AF/%E6%A0%87%E6%B8%85%E9%AB%98%E6%B8%85/MP3_320_16_Stero/60054701921.mp3?channelid=03&k=0cae0183abbfe827&t=1585881616&msisdn=cc4b7f93-e2f0-4a7e-ad0f-4e41d2ca1bc7',
+            cover: 'https://cdnmusic.migu.cn/picture/2019/1125/1028/ALe2de34dab7c04adc8cd48025339c46c5.jpg',
+            lrc: '/./dist/music/lrc/yfzm.lrc',
+        theme: '#46718b'
+        },
+        {
+            name: 'Only My Railgun',
+            artist: '花たん',
+            url: 'http://music.163.com/song/media/outer/url?id=27632615.mp3',
+            cover: 'http://y.gtimg.cn/music/photo_new/T002M0000000NG1v4fcc1q.jpg',
+            lrc: '/./dist/music/lrc/railgun.lrc',
+        theme: '#46718b'
+        },
     ]
 });
