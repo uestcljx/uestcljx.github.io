@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://uestcljx.github.io">
-  <title>Archives: 2020/3 | Jiangxin-Li</title>
+  <title>初级深度优先搜索(DFS)与回溯 | Jiangxin-Li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="三尺微命，一介书生。求学于蓉城西边，清水河畔。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jiangxin-Li">
-<meta property="og:url" content="https://uestcljx.github.io/archives/2020/03/index.html">
+  <meta name="description" content="引&amp;emsp;&amp;emsp;DFS(Depth First Search)即深度优先搜索，或简称深搜。回溯是一种从当前状态回退到之前状态的手段，经常和DFS打配合，效果奇佳。入门一个算法的最好方法就是做题啦~ 所以本文记录了我快速入门DFS和回溯的两个例题，以及应用DFS+回溯所解决的两个有趣的问题。&amp;emsp;&amp;emsp;我第一眼看到DFS的时候觉得这个算法和以前学的都不太一样，虽然它本质上是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初级深度优先搜索(DFS)与回溯">
+<meta property="og:url" content="https://uestcljx.github.io/2020/03/25/2020-03-25-DFS/index.html">
 <meta property="og:site_name" content="Jiangxin-Li">
-<meta property="og:description" content="三尺微命，一介书生。求学于蓉城西边，清水河畔。">
+<meta property="og:description" content="引&amp;emsp;&amp;emsp;DFS(Depth First Search)即深度优先搜索，或简称深搜。回溯是一种从当前状态回退到之前状态的手段，经常和DFS打配合，效果奇佳。入门一个算法的最好方法就是做题啦~ 所以本文记录了我快速入门DFS和回溯的两个例题，以及应用DFS+回溯所解决的两个有趣的问题。&amp;emsp;&amp;emsp;我第一眼看到DFS的时候觉得这个算法和以前学的都不太一样，虽然它本质上是">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://q87dn7u9a.bkt.clouddn.com/20200408225240.png">
+<meta property="article:published_time" content="2020-03-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-15T15:12:36.369Z">
 <meta property="article:author" content="Jiangxin-Li">
-<meta property="article:tag" content="蒟蒻">
+<meta property="article:tag" content="数据结构与算法">
+<meta property="article:tag" content="搜索">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://q87dn7u9a.bkt.clouddn.com/20200408225240.png">
   
   
     <link rel="icon" href="/assets/img/favicon.png">
@@ -170,36 +175,62 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2020-03-25-DFS" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/25/2020-03-25-DFS/" class="archive-article-date">
-  	<time datetime="2020-03-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/25/2020-03-25-DFS/">初级深度优先搜索(DFS)与回溯</a>
+    <h1 class="article-title" itemprop="name">
+      初级深度优先搜索(DFS)与回溯
     </h1>
   
 
-        <div class="article-info info-on-right">
+        <!--显示阅读次数-->
+        
+          <br/>
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+          </a>
           
+        
+        <a href="/2020/03/25/2020-03-25-DFS/" class="archive-article-date">
+  	<time datetime="2020-03-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
+</a>
+        
+      </header>
+    
+        <!-- 目录内容 -->
+    <!-- 		 -->
+    <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <br>
+
+<h1 id="引"><a href="#引" class="headerlink" title="引"></a>引</h1><p>&emsp;&emsp;DFS(Depth First Search)即深度优先搜索，或简称深搜。回溯是一种从当前状态回退到之前状态的手段，经常和DFS打配合，效果奇佳。入门一个算法的最好方法就是做题啦~ 所以本文记录了我快速入门DFS和回溯的两个例题，以及应用DFS+回溯所解决的两个有趣的问题。<br>&emsp;&emsp;我第一眼看到DFS的时候觉得这个算法和以前学的都不太一样，虽然它本质上是暴力求解，但它让我第一次感觉到编程本身的乐趣。我的意思是，之前我觉得虽然很多算法本身很有趣很神奇，但是为这些算法编程却多多少少是枯燥的。但是DFS却是一个能让写出来的代码变得简洁优雅的神奇算法。它充分地利用了计算机内部隐式栈的特点实现了普通手段难以做到的事，使得写代码本身有了极大的乐趣和成就感。</p>
+<a id="more"></a>
+<h1 id="问题入门"><a href="#问题入门" class="headerlink" title="问题入门"></a>问题入门</h1><h2 id="拆分自然数"><a href="#拆分自然数" class="headerlink" title="拆分自然数"></a>拆分自然数</h2><p>&emsp;&emsp;我入门DFS的第一个问题是，当普通的嵌套循环无法满足需求时，或者更具体地说，当我不知道要嵌套几层循环时，该怎么办？<br>&emsp;&emsp;比如将自然数n拆成3个数的和？不会DFS的话就只得乖乖嵌套三层循环。但如果将自然数n拆成不小于m个数的和呢？<del>不会DFS的话就只得乖乖束手就擒了。</del><br>&emsp;&emsp;我们希望计算机能在满足约束条件的情况下不断帮我们拆分n，到满足目标条件的时候及时输出而不至于错过正确答案。这就是DFS的思想。对于上述问题，我们只需要根据约束条件和目标条件确定需要哪些状态变量，然后带着这些状态变量去搜索就可以了。不用怀疑，相信DFS，它一定会帮你找到答案。这里的状态变量有当前的正整数个数、当前目标自然数以及上一层当前搜索的点（避免重复，比如上一层是3，那么本层必须从3开始搜）。<br>&emsp;&emsp;于是乎代码产生如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">/* 把一个正整数n表示成小于等于m个正整数的和输出，后面的数必须比前面的数大 */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">103</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, arr[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> t, <span class="keyword">int</span> i, <span class="keyword">int</span> a)</span></span>&#123; <span class="comment">// t为当前目标，i为当前调用是第几个正整数，a为开始搜索加数的点</span></span><br><span class="line">    <span class="keyword">if</span>(t==<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d = "</span>, n);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=i<span class="number">-2</span>; ++j)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d + "</span>,arr[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, arr[i<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(i&lt;=m)&#123; <span class="comment">// 当前加数的个数小于m,可以继续加和，从a开始搜</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=a;j&lt;=n;j++)&#123;</span><br><span class="line">            arr[i]=j;</span><br><span class="line">            dfs(t-j, i+<span class="number">1</span>, j); <span class="comment">// 把下层的目标，下层的正整数数目以及该层的搜索点带到下层去</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* Code */</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;n, &amp;m);</span><br><span class="line">    dfs(n,<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="comment">/* Code */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h1><p>&emsp;&emsp;这次我们不再拆分一个自然数，相反，我们拼凑一个自然数。这个自然数要求是素数。而且我们要从给定的n个自然数里面选k个数来进行拼凑。看起来与前一个问题相似，似乎只需要用类似的“带着约束和目标条件去搜索”的思路即可。但选数拼凑问题有一个很重要的问题，那就是有可能选错数。但是这种错误又是不可避免的，因为你不试怎么知道对不对呢？我们希望计算机能在意识到错的时候及时回头，重新做一次选择，这就是回溯的思想。<br>&emsp;&emsp;听起来这种操作好像有点复杂，但是它和DFS搭在一起简直是天生一对。要做的仅仅是增加一个访问状态变量，试错的时候标记为已访问，意识到错的时候标记为未访问并返回上一层即可。在代码中体现为两行代码。<br>&emsp;&emsp;上代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">/* 从n个数里选k个数，要求k个数相加为素数。输出选数方案。 */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">21</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, k, arr[N], ans;</span><br><span class="line"></span><br><span class="line">ll s;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> vis[N];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isPrime</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=<span class="built_in">sqrt</span>(s);i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s%i==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> a)</span></span>&#123; <span class="comment">// m为当前加和的个数, a为开始搜索点</span></span><br><span class="line">    <span class="keyword">if</span>(m==k)&#123;</span><br><span class="line">        <span class="keyword">if</span>(isPrime(s))&#123;</span><br><span class="line">            ans++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=a;i&lt;n;++i)&#123; <span class="comment">// 从n个数里选一个数</span></span><br><span class="line">        <span class="keyword">if</span>(!vis[i])&#123; <span class="comment">// 没有选过</span></span><br><span class="line">            vis[i]=<span class="literal">true</span>; s+=arr[i]; <span class="comment">// 试错</span></span><br><span class="line">            dfs(m+<span class="number">1</span>, i+<span class="number">1</span>);</span><br><span class="line">            s-=arr[i]; vis[i]=<span class="literal">false</span>; <span class="comment">// 回溯</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* Code */</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;n, &amp;k);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line">    <span class="comment">/* Code */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="有趣的问题"><a href="#有趣的问题" class="headerlink" title="有趣的问题"></a>有趣的问题</h1><p>&emsp;&emsp;有了DFS+回溯两大武器，我们就可以试着屠几只小龙了。</p>
+<h2 id="数独"><a href="#数独" class="headerlink" title="数独"></a>数独</h2><p>&emsp;&emsp;第一个有趣的问题是数独游戏。数独游戏要求在未完成的9x9的数阵中填满数，且满足约束条件：每一行、每一列以及每一粗方格中的数不重复。似乎用选数拼凑的思路就可以完美解决这一问题，而事实也正是如此。唯一需要考虑的问题是，数独的约束条件检测有些麻烦，似乎复杂度不低啊，能不能降一点？这里就巧妙地利用了二维表这一工具。可以对行、列、粗方格各维护一张9x9布尔二维表，表示每一行/列/粗方格是否有某个数，比如<code>row[1][2]=true</code>表示第一行已经有2这个数了。这里的难点在于如何用行列信息表示粗方格，这就要用到van能的数学了，观察下面这张图：<br><img src="http://q87dn7u9a.bkt.clouddn.com/20200408225240.png" alt="数独"><br>&emsp;&emsp;可以看到，每隔三列，方格加1；每隔三行，方格加3，因此方格序号与行列的关系为：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">方阵序号=（行数<span class="number">-1</span>）/<span class="number">3</span>*<span class="number">3</span>+（列数<span class="number">-1</span>）/<span class="number">3</span>+<span class="number">1</span></span><br><span class="line"><span class="comment">//注意！行数列数要-1，因为3的整数倍数/3会比原方阵大1，不能满足上述需求。</span></span><br></pre></td></tr></table></figure>
+<p>上代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 给定未完成的数独矩阵，输出完成的数独矩阵。要求每一行、每一列、每个粗格中都不能有重复数 */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">103</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> arr[<span class="number">11</span>][<span class="number">11</span>]; <span class="comment">// 数独矩阵</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> r[<span class="number">11</span>][<span class="number">11</span>], c[<span class="number">11</span>][<span class="number">11</span>], s[<span class="number">11</span>][<span class="number">11</span>]; <span class="comment">// 检查行、列、粗格要用到的布尔矩阵</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123; <span class="comment">// 按格式输出</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">9</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=<span class="number">9</span>;j++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>,arr[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>); <span class="comment">// 一定要用exit而不是return，表示进程结束，控制权交给OS而不是调用它的函数</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123; <span class="comment">// i为行号，j为列号</span></span><br><span class="line">    <span class="keyword">if</span>(arr[i][j]!=<span class="number">0</span>)&#123; <span class="comment">// 当前已被填数</span></span><br><span class="line">        <span class="keyword">if</span>(i==<span class="number">9</span> &amp;&amp; j==<span class="number">9</span>) <span class="comment">// 搜索完毕，输出</span></span><br><span class="line">            print();</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(j==<span class="number">9</span>)</span><br><span class="line">            dfs(i+<span class="number">1</span>,<span class="number">1</span>); <span class="comment">// 搜下一行</span></span><br><span class="line">        <span class="keyword">else</span> dfs(i,j+<span class="number">1</span>); <span class="comment">// 搜下一列</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="comment">// 当前未填数</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=<span class="number">9</span>;k++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!r[i][k]&amp;&amp;!c[j][k]&amp;&amp;!s[(i<span class="number">-1</span>)/<span class="number">3</span>*<span class="number">3</span>+(j<span class="number">-1</span>)/<span class="number">3</span>+<span class="number">1</span>][k]) <span class="comment">// k是“三独数”</span></span><br><span class="line">            &#123;</span><br><span class="line">                arr[i][j]=k;</span><br><span class="line">                r[i][k]=c[j][k]=s[(i<span class="number">-1</span>)/<span class="number">3</span>*<span class="number">3</span>+(j<span class="number">-1</span>)/<span class="number">3</span>+<span class="number">1</span>][k]=<span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">9</span> &amp;&amp; j==<span class="number">9</span>) <span class="comment">// 搜索完毕，输出</span></span><br><span class="line">                    print();</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(j==<span class="number">9</span>)</span><br><span class="line">                    dfs(i+<span class="number">1</span>,<span class="number">1</span>); <span class="comment">// 搜下一行</span></span><br><span class="line">                <span class="keyword">else</span> dfs(i,j+<span class="number">1</span>); <span class="comment">// 搜下一列</span></span><br><span class="line">                arr[i][j]=<span class="number">0</span>;</span><br><span class="line">                r[i][k]=c[j][k]=s[(i<span class="number">-1</span>)/<span class="number">3</span>*<span class="number">3</span>+(j<span class="number">-1</span>)/<span class="number">3</span>+<span class="number">1</span>][k]=<span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* Code */</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">9</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=<span class="number">9</span>;j++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;arr[i][j]);</span><br><span class="line">            <span class="keyword">int</span> num=arr[i][j];</span><br><span class="line">            <span class="keyword">if</span>(num!=<span class="number">0</span>)&#123;</span><br><span class="line">                r[i][num]=c[j][num]=s[(i<span class="number">-1</span>)/<span class="number">3</span>*<span class="number">3</span>+(j<span class="number">-1</span>)/<span class="number">3</span>+<span class="number">1</span>][num]=<span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="comment">/* Code */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><p>&emsp;&emsp;试想有两个处理器和一堆任务，完成不同任务需要耗费不同的时间。怎样分配任务能使得最短时间内完成所有任务？这个问题本质上是集合划分，一个划分成两个子集可能性有2^n种。这道题很难用普通的循环做，这是因为本题是最优化问题，需要尝试所有可能情况才能确定最优值，因此需要回溯。注意本题与前面的选数拼凑问题的区别在于选数拼凑有明确的目标，每次搜索前要判定目标是否达成，因此不一定要尝试所有的情况，而最优化问题的DFS不会判定目标是否达成，而是一直搜到底，最后保留在最优状态变量中的值才是最优值。在 <a href="https://www.luogu.com.cn/problem/P2392" target="_blank" rel="noopener">洛谷P2392 kkksc03考前临时抱佛脚</a> 中给这种问题赋予了有趣的背景，直接上代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 集合划分问题。四个正整数集合，将每个集合划分成两个子集，</span></span><br><span class="line"><span class="comment">   划分要求：两个子集的数和较大者要尽可能小。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   背景：有四个科目，每科若干题目，每题若干分钟数，</span></span><br><span class="line"><span class="comment">   左脑右脑可以同时处理相同科目的两道题目，</span></span><br><span class="line"><span class="comment">   问怎么划分题目给左右脑可以达到最短复习时间*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">25</span>, M=<span class="number">4</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> s[M], arr[M][N], arr_sum[M], cur[M], ans[M]; <span class="comment">// 每科题目数，每题分钟数，每科总时间，左脑过程总时间，左脑最终总时间（将左脑过程总时间的最小值放入）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> vis[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> si, <span class="keyword">int</span> a)</span></span>&#123; <span class="comment">// si为当前科目序号，a为当前的题目序号</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=a;i&lt;s[si];++i)&#123; <span class="comment">// 决定每一个题是否由左脑算</span></span><br><span class="line">        <span class="keyword">if</span>(!vis[i])&#123; <span class="comment">// 该题待决定</span></span><br><span class="line">            vis[i]=<span class="literal">true</span>; cur[si]+=arr[si][i]; <span class="comment">// 将题目i分配给左脑</span></span><br><span class="line">            <span class="keyword">int</span> max_time = max(cur[si],arr_sum[si]-cur[si]); <span class="comment">// max_time为左右脑的较长用时</span></span><br><span class="line">            ans[si]=min(max_time,ans[si]); <span class="comment">// max_time为当前，ans为最小 (ans在main()中被初始化为10000)</span></span><br><span class="line">            dfs(si, i+<span class="number">1</span>);</span><br><span class="line">            cur[si]-=arr[si][i]; vis[i]=<span class="literal">false</span>; <span class="comment">// 回溯</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* Code */</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;M;i++)&#123;</span><br><span class="line">        ans[i]=<span class="number">10000</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans_sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;M;i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;s[i]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;M;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;s[i];j++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;arr[i][j]);</span><br><span class="line">            arr_sum[i]+=arr[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;M;i++)&#123;</span><br><span class="line">        dfs(i,<span class="number">0</span>);</span><br><span class="line">        ans_sum+=ans[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,ans_sum);</span><br><span class="line">    <span class="comment">/* Code */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -215,141 +246,161 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://uestcljx.github.io/2020/03/25/2020-03-25-DFS/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/21/2020-03-21-qsort/" class="archive-article-date">
-  	<time datetime="2020-03-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/04/01/2020-04-01-MEC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          移动边缘计算(MEC)综述论文笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/21/2020-03-21-qsort/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">快速排序</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/21/2020-03-21-qsort/">快速排序</a>
-    </h1>
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "RXk5cxUXPCYzrnEFbxM6EUEH-gzGzoHsz",
+            app_key: "aqV8PeavEMHrl4u8lVemUlfR",
+            placeholder: "欢迎留言😋",
+            path:window.location.pathname, 
+            avatar:"retro"
+        });
+    }
+    // document.body.addEventListener('click', function(e) {
+    // if (e.target.classList.contains('vsubmit')) {
+    //     const email = document.querySelector('input[type=email]');
+    //     const nick = document.querySelector('input[name=nick]');
+    //     const reg = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    //     if (!email.value || !nick.value || !reg.test(email.value)) {
+    //         const str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
+    //         const vmark = document.querySelector('.vmark');
+    //         vmark.innerHTML = str;
+    //         vmark.style.display = 'block';
+
+    //         setTimeout(function() {
+    //             vmark.style.display = 'none';
+    //             vmark.innerHTML = '';
+    //         }, 2500);
+    //     }
+    // }
+    // });
+</script>
+
+  </section>
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/13/2020-03-13-WSL/" class="archive-article-date">
-  	<time datetime="2020-03-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/13/2020-03-13-WSL/">WSL大法好</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/06/2020-03-06-NN/" class="archive-article-date">
-  	<time datetime="2020-03-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/06/2020-03-06-NN/">初探神经网络</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">神经网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -383,8 +434,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
