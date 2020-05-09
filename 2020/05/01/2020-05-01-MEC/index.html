@@ -6,18 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://uestcljx.github.io">
-  <title>Tag: Linux | Jiangxin-Li</title>
+  <title>移动边缘计算(MEC)综述论文笔记 | Jiangxin-Li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="三尺微命，一介书生。求学于蓉城西边，清水河畔。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jiangxin-Li">
-<meta property="og:url" content="https://uestcljx.github.io/tags/Linux/index.html">
+  <meta name="description" content="引&amp;emsp;&amp;emsp;本文是移动边缘计算(MEC)领域一篇综述性论文的阅读笔记。这篇论文让我大致了解了MEC的历史、问题、解决方案以及困难挑战。论文对大量术语及缩写进行了解释，阅读障碍较小，入门友好~&amp;emsp;&amp;emsp;论文题目为《Mobile Edge Computing: A Survey on Architecture and Computation Offloading》，该文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动边缘计算(MEC)综述论文笔记">
+<meta property="og:url" content="https://uestcljx.github.io/2020/05/01/2020-05-01-MEC/index.html">
 <meta property="og:site_name" content="Jiangxin-Li">
-<meta property="og:description" content="三尺微命，一介书生。求学于蓉城西边，清水河畔。">
+<meta property="og:description" content="引&amp;emsp;&amp;emsp;本文是移动边缘计算(MEC)领域一篇综述性论文的阅读笔记。这篇论文让我大致了解了MEC的历史、问题、解决方案以及困难挑战。论文对大量术语及缩写进行了解释，阅读障碍较小，入门友好~&amp;emsp;&amp;emsp;论文题目为《Mobile Edge Computing: A Survey on Architecture and Computation Offloading》，该文">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/MEC_concepts.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200403181722.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200403192722.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200403202823.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200403202839.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200403204220.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200404103240.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200404104232.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200404102246.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200404102313.png">
+<meta property="article:published_time" content="2020-04-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-05-08T11:07:05.552Z">
 <meta property="article:author" content="Jiangxin-Li">
-<meta property="article:tag" content="蒟蒻">
+<meta property="article:tag" content="论文笔记">
+<meta property="article:tag" content="边缘计算">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/MEC_concepts.png">
   
   
     <link rel="icon" href="/assets/img/favicon.png">
@@ -170,60 +184,288 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2020-05-01-MEC" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/13/2020-03-13-WSL/" class="archive-article-date">
-  	<time datetime="2020-03-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/13/2020-03-13-WSL/">WSL大法好</a>
+    <h1 class="article-title" itemprop="name">
+      移动边缘计算(MEC)综述论文笔记
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        <!--显示阅读次数-->
+      
+        <br/>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+        </span>
+        </a>
+        
+        
+        <a href="/2020/05/01/2020-05-01-MEC/" class="archive-article-date">
+  	<time datetime="2020-04-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
+</a>
+        
+      </header>
+    
+        <!-- 目录内容 -->
+    <!-- 
+      <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+      <strong class="toc-title">文章目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#引"><span class="toc-number">1.</span> <span class="toc-text">引</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重要术语表"><span class="toc-number">2.</span> <span class="toc-text">重要术语表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第一部分：MEC的引入"><span class="toc-number">3.</span> <span class="toc-text">第一部分：MEC的引入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二部分：MEC的几个设想方案及应用"><span class="toc-number">4.</span> <span class="toc-text">第二部分：MEC的几个设想方案及应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MEC的设想方案"><span class="toc-number">4.1.</span> <span class="toc-text">MEC的设想方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MEC的应用场景"><span class="toc-number">4.2.</span> <span class="toc-text">MEC的应用场景</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三部分：Computation-Offloading-CO-详述"><span class="toc-number">5.</span> <span class="toc-text">第三部分：Computation Offloading (CO) 详述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CO简介"><span class="toc-number">5.1.</span> <span class="toc-text">CO简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CO问题及解决方案"><span class="toc-number">5.2.</span> <span class="toc-text">CO问题及解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一个问题：要不要Offload"><span class="toc-number">5.2.1.</span> <span class="toc-text">第一个问题：要不要Offload?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二个问题：计算资源分配"><span class="toc-number">5.2.2.</span> <span class="toc-text">第二个问题：计算资源分配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三个问题：MEC移动管理"><span class="toc-number">5.2.3.</span> <span class="toc-text">第三个问题：MEC移动管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CO经验法则"><span class="toc-number">5.3.</span> <span class="toc-text">CO经验法则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CO目前的挑战"><span class="toc-number">5.4.</span> <span class="toc-text">CO目前的挑战</span></a></li></ol></li></ol>
+          </div>
+    <script type="text/javascript">
+    function showToc(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:block");
+      show_toc_btn.setAttribute("style","display:none");
+      };
+    function showBtn(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:none");
+      show_toc_btn.setAttribute("style","display:block");
+      };
+    </script>
+        		 -->
+    <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <br>
+
+<h1 id="引"><a href="#引" class="headerlink" title="引"></a>引</h1><p>&emsp;&emsp;本文是移动边缘计算(MEC)领域一篇综述性论文的阅读笔记。这篇论文让我大致了解了MEC的历史、问题、解决方案以及困难挑战。论文对大量术语及缩写进行了解释，阅读障碍较小，入门友好~<br>&emsp;&emsp;论文题目为《Mobile Edge Computing: A Survey on Architecture and Computation Offloading》，该文大致可分为三个部分。第一部分主要简述Centralized Cloud(CC)和MCC(Mobile Cloud Computing)的不足和问题，从而引入新的解决方案EC(Edge Computing)/MEC(Mobile Edge Computing)，也就是论文的主题；第二部分主要介绍从EC到MEC, 也就是将EC整合进Mobile Network以及MEC的应用场景；第三部分是论文的核心部分，详细总结了MEC中面向用户的应用场景——Computation Offloading(CO)——面临的各种问题挑战、现有的解决方案以及它们的不足。 </p>
+<a id="more"></a>
+
+<h1 id="重要术语表"><a href="#重要术语表" class="headerlink" title="重要术语表"></a>重要术语表</h1><p>CC - Centralized Cloud<br>MCC - Mobile Cloud Computing<br>UE - User Equipment<br>CN - Core Network<br>EC - Edge Computing<br>MEC - Mobile Edge Computing<br>QoS - Quality of Service<br>C-RAN - Cloud Radio Access Network<br>ETSI - European Telecommunications Standard Institute<br><strong>VM - Virtual Machine</strong><br>eNB - evolved Node B<br>SCeNB - Small Cell eNB  <a href="https://www.gyantoday.com/what-are-differences-of-enodeb-home-enodeb-macro-enodeb-femto-cell-small-cell-pico-cell-and-micro-cell/" target="_blank" rel="noopener"> (Good Explanation to eNB and SCeNB) </a><br><strong>NFV - Network Function Virtualization</strong><br><strong>SDN - Software Defined Network</strong><br>CO - Computation Offloading<br>CDG - Component Dependency Graph</p>
+<h1 id="第一部分：MEC的引入"><a href="#第一部分：MEC的引入" class="headerlink" title="第一部分：MEC的引入"></a>第一部分：MEC的引入</h1><p>&emsp;&emsp;CC或者MCC的问题在于服务器在地理距离上离用户太远，由此造成的时延太高，无法满足某些对时延敏感应用的需要，比如VR游戏等。于是MEC诞生了。MEC可以理解为一种特殊的MCC，只不过它的计算和存储资源距离用户更近，因此时延和不稳定性会比MCC低很多。<br>&emsp;&emsp;实际上，去掉MEC中的M来看，单纯的EC已经有了很长时间的发展。第一个与EC概念相关的想法是cloudlet, 早在2009年就已提出，而后又提出了ad-hoc cloud、Fog等EC技术。需要明确，不管是CC/MCC、MEC还是EC都是某种概念或者说标准，而实现这种概念或者标准的方式有很多。<br>&emsp;&emsp;那么，要如何在EC的前面加上这个M呢？这就是论文第二部分主要讨论的问题：如何将EC整合进Mobile Network?</p>
+<h1 id="第二部分：MEC的几个设想方案及应用"><a href="#第二部分：MEC的几个设想方案及应用" class="headerlink" title="第二部分：MEC的几个设想方案及应用"></a>第二部分：MEC的几个设想方案及应用</h1><h2 id="MEC的设想方案"><a href="#MEC的设想方案" class="headerlink" title="MEC的设想方案"></a>MEC的设想方案</h2><p>&emsp;&emsp;第二部分前半部分主要讨论的是将EC整合进Mobile Network的方案。目前有两种概念级的解决方案：C-RAN和MEC。前者并非论文重点所以在此略过不表，而MEC实际上是ETSI的一个叫Industry Specification Group的组织提出的概念，旨在将云计算资源高效、无缝地整合进现有的Mobile Network。<br>&emsp;&emsp;有了概念级的解决方案，剩下的工作就是如何实现这一概念。很多工作者包括ETSI自己都提出了对应的MEC架构。下表比较了这几种架构在控制和部署方面的差异，控制方面大致可分为Decentralized, Centrolized和Hierarchical三类。关于这两方面本文不再赘述，更多的细节在需要的时候再参阅文献即可。<br>&emsp;&emsp;值得一提的是，从这些架构所使用的技术可以看到两大趋势。第一大趋势就是基于NFV的虚拟化技术，比如在2012年提出的SCC架构中就很好地引入了这一技术。虚拟化的好处在于能够更灵活地管理和控制计算和存储资源。第二大趋势就是基于SDN的解耦控制层与数据层的技术，比如在2015年提出的MobiScud架构中就利用了这一技术。为什么要解耦？论文的原话是：<em>It allows a dynamic adaptation of the network to changing traffic patterns and users requirements.</em> 我目前对于这句话中的dynamic adaptation和traffic patterns理解并不是很深刻。但是直觉告诉我，有关解耦或是分离的技术基本都是使得模块之间的依赖减弱，使得今后的维护和扩展更加容易。希望以后学习更多专业知识后回来看这句话能有更深刻的理解。<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/MEC_concepts.png" alt="MEC concepts"></p>
+<h2 id="MEC的应用场景"><a href="#MEC的应用场景" class="headerlink" title="MEC的应用场景"></a>MEC的应用场景</h2><p>&emsp;&emsp;论文将MEC的应用场景划分为面向用户、面向第三方服务以及面向网络性能三类，关于每一类的具体应用见下图。需要指出，论文重点关注的应用场景是第一类，即面向用户的应用。这类应用场景几乎都会用到CO技术。对这一技术详细介绍也是论文第三部分的主题。<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200403181722.png" alt="MEC use"></p>
+<h1 id="第三部分：Computation-Offloading-CO-详述"><a href="#第三部分：Computation-Offloading-CO-详述" class="headerlink" title="第三部分：Computation Offloading (CO) 详述"></a>第三部分：Computation Offloading (CO) 详述</h1><h2 id="CO简介"><a href="#CO简介" class="headerlink" title="CO简介"></a>CO简介</h2><p>&emsp;&emsp;简单地说，CO是为终端用户，也就是UE服务的。它的目标是节省电源，加速计算。实现这一技术需要回答两个问题：</p>
+<blockquote>
+<p>&emsp;&emsp;1. Whether to offload or not?<br>&emsp;&emsp;2. How much and what should be offloaded?   </p>
+</blockquote>
+<p>要解决这些问题，首先需要考虑application model/type. 对此论文提出了三个方面的标准：</p>
+<blockquote>
+<p>&emsp;&emsp;1. Offloadability of application<br>&emsp;&emsp;2. Knowledge on the amount of data to be processed<br>&emsp;&emsp;3. Dependency of the offloadable parts</p>
+</blockquote>
+<p>这三个标准都是比较容易理解的，第一个是应用能否offload，像用户输入、位置获取等应用必须在UE完成；第二个是应用数据量是否是可预估的，像网络游戏等应用是连续执行的，很难提前知道数据量；第三个是应用各个部分的依赖性，可用下图解释。<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200403192722.png" alt="Dependency"></p>
+<h2 id="CO问题及解决方案"><a href="#CO问题及解决方案" class="headerlink" title="CO问题及解决方案"></a>CO问题及解决方案</h2><p>&emsp;&emsp;在获取了应用的信息后，接下来就要逐一解决以下问题：</p>
+<blockquote>
+<p>&emsp;&emsp;1. Decision on the computation offloading to the MEC<br>&emsp;&emsp;2. Efficient allocation of the computation resources within the MECprocessed<br>&emsp;&emsp;3. Mobility management for the moving users exploiting MEC services.</p>
+</blockquote>
+<p>对每一个问题，要提出解决方案，首先要确定一个优化目标。这个优化目标通常是最小化时延、最小化能耗或者Trade-off。下面一一讨论这三个问题的挑战以及对应的解决方案</p>
+<h3 id="第一个问题：要不要Offload"><a href="#第一个问题：要不要Offload" class="headerlink" title="第一个问题：要不要Offload?"></a>第一个问题：要不要Offload?</h3><p>&emsp;&emsp;对于这个问题，论文总结了三种选择：Full offloading, Partial offloading 或是 Local execution。该问题的优化目标主要有两类：在满足时延约束的条件下最小化能耗或者找到时延和能耗的平衡点。下表总结了侧重于Full offloading或是Partial offloading的各种方法，比较了它们在优化目标、基本算法、实验假设及实验结果、复杂度分析方面的差异，对此不再赘述。值得注意的是，很多方案其实是基于前面方案的扩展，比如将Single UE的假设扩展为Multi UEs假设。然而这些方案的Evaluation几乎都是基于Simulation，仅有少数工作进行Analytical Evaluation.<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200403202823.png" alt="Full offloading"><br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200403202839.png" alt="Partial Offload"></p>
+<h3 id="第二个问题：计算资源分配"><a href="#第二个问题：计算资源分配" class="headerlink" title="第二个问题：计算资源分配"></a>第二个问题：计算资源分配</h3><p>&emsp;&emsp;一旦决定了要Offload，就要考虑怎样分配计算资源这一问题。论文将所调研的文献分成两类，第一类是考虑单个计算节点，第二类是考虑多个计算节点。该问题的优化目标主要是将offloaded application的执行时延最小化。下图总结了解决这一问题的各类方案。需要指出，所有方案都只有simulation，且都没有考虑mobility of UEs，也就是第三个要解决的问题。<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200403204220.png" alt="Allocation"></p>
+<h3 id="第三个问题：MEC移动管理"><a href="#第三个问题：MEC移动管理" class="headerlink" title="第三个问题：MEC移动管理"></a>第三个问题：MEC移动管理</h3><p>&emsp;&emsp;当UEs在地理位置上发生改变时，MEC需要做出一些动作来保证服务的连续性以及QoS. 论文总结了三种选择：</p>
+<blockquote>
+<p>&emsp;&emsp;1. Adapt transmission power of the eNB/SCeNB<br>&emsp;&emsp;2. VM migration if UE performs handover to the new serving eNB/SCeNB<br>&emsp;&emsp;3. Selection of a new communication path between the UE and the computing node.</p>
+</blockquote>
+<p>&emsp;&emsp;第一种选择对应的情况是UEs的移动范围较小，比如一栋楼里。<br>&emsp;&emsp;第二种选择对应的情况是UEs的移动不受限制，第一种选择已无法满足需求了。但是第二种选择并不是一定要执行VM migration, 而是要根据migration的Cost和Gain判断是否执行。如下图，虽然UE在移动过程中超出cell boundaries后eNB会执行radio handover，但是仅当Gain&gt;Cost时才执行VM migration.<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200404103240.png" alt="VM migration"></p>
+<p>&emsp;&emsp;第三种选择对应的情况是应用数据量巨大，migration的耗时难以接受。这一选择的意思是computing node不再将计算好的结果通过radio link直接传送给UE(因为UE移动后已难以传送), 而是找到另一条最优的路径传送。如下图，UE在SCeNB3中有计算任务，但是UE经过一段时间的移动后，SCeNB3已经无法通过radio link直接传送数据，因此利用backhaul link经过CN到SCeNB2将数据间接传送给UE.<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200404104232.png" alt="Select path"></p>
+<p>&emsp;&emsp;下表总结了与MEC移动管理相关的一些工作。值得注意的是，大部分工作都侧重于VM migration，而这些工作都基于single computing node的假设。虽然这会减小问题复杂度，但是与解决计算资源分配相关工作中的multi computing node假设是不符的。<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200404102246.png" alt="mobility 1"></p>
+<p><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200404102313.png" alt="mobility 2"></p>
+<h2 id="CO经验法则"><a href="#CO经验法则" class="headerlink" title="CO经验法则"></a>CO经验法则</h2><!-- &emsp;&emsp;论文总结了CO方方面面的经验法则，原文中这些法则均被加粗，信息获取已经很方便，此处略过不表，需要时可直接翻阅论文原文。 -->
+<h2 id="CO目前的挑战"><a href="#CO目前的挑战" class="headerlink" title="CO目前的挑战"></a>CO目前的挑战</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">边缘计算</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://uestcljx.github.io/2020/05/01/2020-05-01-MEC/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/05/08/2020-05-08-theme/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          本站主题配置
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/04/26/2020-04-26-Picgo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">七牛云图床转Github图床</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#引"><span class="toc-number">1.</span> <span class="toc-text">引</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重要术语表"><span class="toc-number">2.</span> <span class="toc-text">重要术语表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第一部分：MEC的引入"><span class="toc-number">3.</span> <span class="toc-text">第一部分：MEC的引入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二部分：MEC的几个设想方案及应用"><span class="toc-number">4.</span> <span class="toc-text">第二部分：MEC的几个设想方案及应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MEC的设想方案"><span class="toc-number">4.1.</span> <span class="toc-text">MEC的设想方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MEC的应用场景"><span class="toc-number">4.2.</span> <span class="toc-text">MEC的应用场景</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三部分：Computation-Offloading-CO-详述"><span class="toc-number">5.</span> <span class="toc-text">第三部分：Computation Offloading (CO) 详述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CO简介"><span class="toc-number">5.1.</span> <span class="toc-text">CO简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CO问题及解决方案"><span class="toc-number">5.2.</span> <span class="toc-text">CO问题及解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一个问题：要不要Offload"><span class="toc-number">5.2.1.</span> <span class="toc-text">第一个问题：要不要Offload?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二个问题：计算资源分配"><span class="toc-number">5.2.2.</span> <span class="toc-text">第二个问题：计算资源分配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三个问题：MEC移动管理"><span class="toc-number">5.2.3.</span> <span class="toc-text">第三个问题：MEC移动管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CO经验法则"><span class="toc-number">5.3.</span> <span class="toc-text">CO经验法则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CO目前的挑战"><span class="toc-number">5.4.</span> <span class="toc-text">CO目前的挑战</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "RXk5cxUXPCYzrnEFbxM6EUEH-gzGzoHsz",
+            app_key: "aqV8PeavEMHrl4u8lVemUlfR",
+            placeholder: "欢迎留言😋",
+            path:window.location.pathname, 
+            avatar:"retro"
+        });
+    }
+    // document.body.addEventListener('click', function(e) {
+    // if (e.target.classList.contains('vsubmit')) {
+    //     const email = document.querySelector('input[type=email]');
+    //     const nick = document.querySelector('input[name=nick]');
+    //     const reg = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    //     if (!email.value || !nick.value || !reg.test(email.value)) {
+    //         const str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
+    //         const vmark = document.querySelector('.vmark');
+    //         vmark.innerHTML = str;
+    //         vmark.style.display = 'block';
+
+    //         setTimeout(function() {
+    //             vmark.style.display = 'none';
+    //             vmark.innerHTML = '';
+    //         }, 2500);
+    //     }
+    // }
+    // });
+</script>
+
+  </section>
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -256,9 +498,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,

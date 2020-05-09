@@ -16,7 +16,7 @@
 <meta property="og:description" content="折腾了两天多，在github page上看到自己的博客加载下来时，突然有种错综复杂的恍惚感。是的，它不是qq空间，不是新浪博客，不是豆瓣小站，也不是贴吧。它更像是属于自己的一块小小的领地，因而我满足于这种归属感。我愿在上面安静劳作。一个农民，通过自身努力终于分到了一块地，不再需要在地主的土地上创造流量价值时，于是翻身作主的他可以宣告说：Hello World。当然这个农民确切来说是个码农。作">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-17T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-05-08T10:18:55.948Z">
+<meta property="article:modified_time" content="2020-05-08T11:02:46.177Z">
 <meta property="article:author" content="Jiangxin-Li">
 <meta property="article:tag" content="杂谈">
 <meta name="twitter:card" content="summary">
@@ -90,6 +90,10 @@ var _hmt = _hmt || [];
     			
             
     			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友情链接</a>
+    			
+            
+    			
     			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
@@ -99,9 +103,7 @@ var _hmt = _hmt || [];
 				
 					<a class="github" target="_blank" href="https://github.com/uestcljx" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/robinson-82" title="zhihu"><i class="icon-zhihu"></i></a>
-		        
-					<a class="bilibili" target="_blank" href="https://space.bilibili.com/27226764" title="bilibili"><i class="icon-bilibili"></i></a>
+					<a class="mail" target="_blank" href="/jiangxli9898@gmail.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -142,9 +144,7 @@ var _hmt = _hmt || [];
 					
 						<a class="github" target="_blank" href="https://github.com/uestcljx" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/robinson-82" title="zhihu"><i class="icon-zhihu"></i></a>
-			        
-						<a class="bilibili" target="_blank" href="https://space.bilibili.com/27226764" title="bilibili"><i class="icon-bilibili"></i></a>
+						<a class="mail" target="_blank" href="/jiangxli9898@gmail.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -213,14 +213,7 @@ var _hmt = _hmt || [];
 <p>上面这段文字指引着我走向内心里某种酝酿已久却又难以捕捉的欲望。</p>
 <p>在别人的领地上，我拥有的是使用权；而在这片土地上，我拥有的是所有权。在这里，我可以增加任何想要的模块，可以播放任何好听的音乐，可以分享任何好看的照片，可以发布任何好玩的想法。 </p>
 <p>这块“土地”虽然不像《飘》里面的塔拉或是十二橡树种植园那样能够赚钱养活一大家子人，但是我想，在这个靠自己努力分到的一块地上笔耕不缀带给我的将会是内心的充实与平静。很多时候，这份心境靠钱是难买的，不是吗？</p>
-<p>本站基于 Github Page + Hexo 搭建，在原有基础上加入了如下改动：</p>
-<ul>
-<li>头像上方图调用了获取 <a href="https://cn.bing.com/" target="_blank" rel="noopener">bing首页</a> 壁纸的API,每天自动更新~</li>
-<li>左下角音乐盒使用了<a href="https://github.com/MoePlayer/APlayer" target="_blank" rel="noopener">APlayer</a>插件。</li>
-<li>添加相册 &amp; 视频页面，编写Python脚本实现自动化部署照片。</li>
-<li>添加留言板页面，留言功能基于Valine实现。</li>
-<li>添加文章导引功能。<br>最后感谢 Theme Maker <a href="https://github.com/litten" target="_blank" rel="noopener">Litten</a>制作了如此简约大气的主题！<br>翻身万岁，Hello World!</li>
-</ul>
+<p>感谢<a href="https://github.com/litten" target="_blank" rel="noopener">Litten</a>制作的主题</p>
 
       
 
@@ -456,17 +449,25 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
+      
+      
+      
+    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友情链接</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -574,11 +575,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
 
     
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="https://drive.google.com/uc?id=10w2AtqPXkQblRtsTpnOfK3VVZ7ljxlKv&export=download" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>个人简历</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://litten.me/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Litten</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
+    
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">三尺微命，一介书生。&lt;br&gt;&lt;br&gt;求学于蓉城西边，清水河畔。</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">三尺微命，一介书生。&lt;br&gt;&lt;br&gt;求学于蓉城西边，清水河畔。&lt;br&gt;&lt;br&gt;个人简历请猛戳左侧友情链接！！！</div>
   	  	
     	</section>
     

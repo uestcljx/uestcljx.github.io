@@ -88,6 +88,10 @@ var _hmt = _hmt || [];
     			
             
     			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友情链接</a>
+    			
+            
+    			
     			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
@@ -97,9 +101,7 @@ var _hmt = _hmt || [];
 				
 					<a class="github" target="_blank" href="https://github.com/uestcljx" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/robinson-82" title="zhihu"><i class="icon-zhihu"></i></a>
-		        
-					<a class="bilibili" target="_blank" href="https://space.bilibili.com/27226764" title="bilibili"><i class="icon-bilibili"></i></a>
+					<a class="mail" target="_blank" href="/jiangxli9898@gmail.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -140,9 +142,7 @@ var _hmt = _hmt || [];
 					
 						<a class="github" target="_blank" href="https://github.com/uestcljx" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/robinson-82" title="zhihu"><i class="icon-zhihu"></i></a>
-			        
-						<a class="bilibili" target="_blank" href="https://space.bilibili.com/27226764" title="bilibili"><i class="icon-bilibili"></i></a>
+						<a class="mail" target="_blank" href="/jiangxli9898@gmail.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -290,17 +290,25 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
+      
+      
+      
+    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友情链接</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -408,11 +416,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
 
     
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="https://drive.google.com/uc?id=10w2AtqPXkQblRtsTpnOfK3VVZ7ljxlKv&export=download" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>个人简历</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://litten.me/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Litten</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
+    
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">三尺微命，一介书生。&lt;br&gt;&lt;br&gt;求学于蓉城西边，清水河畔。</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">三尺微命，一介书生。&lt;br&gt;&lt;br&gt;求学于蓉城西边，清水河畔。&lt;br&gt;&lt;br&gt;个人简历请猛戳左侧友情链接！！！</div>
   	  	
     	</section>
     
