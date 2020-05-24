@@ -6,18 +6,34 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://uestcljx.github.io">
-  <title>Tag: 搜索 | Jiangxin-Li</title>
+  <title>Serverless Docker调研 | Jiangxin-Li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="三尺微命，一介书生。求学于蓉城西边，清水河畔。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jiangxin-Li">
-<meta property="og:url" content="https://uestcljx.github.io/tags/%E6%90%9C%E7%B4%A2/index.html">
+  <meta name="description" content="引本文梳理了Docker在Serverless场景下的研究背景，针对Docker在降低时延的优化方面做了一些调研，整理了近几年这方面工作的思路和解决方案。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Serverless Docker调研">
+<meta property="og:url" content="https://uestcljx.github.io/2020/05/19/2020-05-19-serverless/index.html">
 <meta property="og:site_name" content="Jiangxin-Li">
-<meta property="og:description" content="三尺微命，一介书生。求学于蓉城西边，清水河畔。">
+<meta property="og:description" content="引本文梳理了Docker在Serverless场景下的研究背景，针对Docker在降低时延的优化方面做了一些调研，整理了近几年这方面工作的思路和解决方案。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200520105238.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/2017-11-30-docker-container-layer.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/serverless_concepts.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200523155341.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200522114735.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200522165930.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200522170706.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/sock_2020-05-23_19-59-37.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200524164916.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200524133614.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200524134602.png">
+<meta property="article:published_time" content="2020-05-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-05-24T12:30:13.736Z">
 <meta property="article:author" content="Jiangxin-Li">
-<meta property="article:tag" content="蒟蒻">
+<meta property="article:tag" content="论文笔记">
+<meta property="article:tag" content="边缘计算">
+<meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200520105238.png">
   
   
     <link rel="icon" href="/assets/img/favicon.png">
@@ -170,64 +186,341 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2020-05-19-serverless" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/25/2020-03-25-DFS/" class="archive-article-date">
-  	<time datetime="2020-03-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/25/2020-03-25-DFS/">初级深度优先搜索(DFS)与回溯</a>
+    <h1 class="article-title" itemprop="name">
+      Serverless Docker调研
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        <!--显示阅读次数-->
+      
+        <br/>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+        </span>
+        </a>
+        
+        
+        <a href="/2020/05/19/2020-05-19-serverless/" class="archive-article-date">
+  	<time datetime="2020-05-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
+</a>
+        
+      </header>
+    
+        <!-- 目录内容 -->
+    <!-- 
+      <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+      <strong class="toc-title">文章目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#引"><span class="toc-number">1.</span> <span class="toc-text">引</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Serverless-Docker研究背景"><span class="toc-number">2.</span> <span class="toc-text">Serverless Docker研究背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker-low-latency方向优化工作总结"><span class="toc-number">3.</span> <span class="toc-text">Docker low-latency方向优化工作总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2014"><span class="toc-number">3.1.</span> <span class="toc-text">2014</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-Lambda"><span class="toc-number">3.1.1.</span> <span class="toc-text">AWS Lambda</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2016"><span class="toc-number">3.2.</span> <span class="toc-text">2016</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenWhisk"><span class="toc-number">3.2.1.</span> <span class="toc-text">OpenWhisk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Slacker"><span class="toc-number">3.2.2.</span> <span class="toc-text">Slacker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenLambda"><span class="toc-number">3.2.3.</span> <span class="toc-text">OpenLambda</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2018"><span class="toc-number">3.3.</span> <span class="toc-text">2018</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SOCK"><span class="toc-number">3.3.1.</span> <span class="toc-text">SOCK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SAND"><span class="toc-number">3.3.2.</span> <span class="toc-text">SAND</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2019"><span class="toc-number">3.4.</span> <span class="toc-text">2019</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Replayable-Execution"><span class="toc-number">3.4.1.</span> <span class="toc-text">Replayable Execution</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开源代码"><span class="toc-number">5.</span> <span class="toc-text">开源代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">6.</span> <span class="toc-text">参考文献</span></a></li></ol>
+          </div>
+    <script type="text/javascript">
+    function showToc(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:block");
+      show_toc_btn.setAttribute("style","display:none");
+      };
+    function showBtn(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:none");
+      show_toc_btn.setAttribute("style","display:block");
+      };
+    </script>
+        		 -->
+    <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="引"><a href="#引" class="headerlink" title="引"></a>引</h1><p>本文梳理了Docker在Serverless场景下的研究背景，针对Docker在降低时延的优化方面做了一些调研，整理了近几年这方面工作的思路和解决方案。</p>
+<a id="more"></a>
+<h1 id="Serverless-Docker研究背景"><a href="#Serverless-Docker研究背景" class="headerlink" title="Serverless Docker研究背景"></a>Serverless Docker研究背景</h1><p>首先介绍Serverless。Serverless的目的是将开发者从繁重的服务器配置和管理中解放出来。其基本思想是由云服务提供商提供servers和runtime environments, servers对开发者透明，开发者只需关注在runtime environments上运行的services的逻辑代码。另外，edge computing也是Serverless的重要应用场景。由于Edge的资源很有限，因此想到用Serverless Platform来部署功能服务，最大化资源利用。<br>结合Microservices的思想（开发者将组成整块应用的模块进一步解耦，使每一个模块能独立地运行和部署，增强了应用的扩展性），最初的Serverless Platform – AWS Lambda诞生了。它的基本原理是，外部事件（比如来自web的REST request) 触发平台的on-demand deploy, 并启动开发者提供的services来handle这些外部事件。它 (lambdas) 的本质是runtime environments级的共享，如下图<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200520105238.png" alt="runtime share"></p>
+<!-- 它与PaaS (Platform as a Service)在某些方面有所不同，比如当用户的Function没有被执行时就不会产生费用，而PaaS的Platform在闲置时仍然会产生费用。 -->
+<!-- ![Serverless](https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200519202137.png) -->
+<!-- 另外，各种aaS的区分可以参考下图，
+![各种aaS](https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200519220632.png) -->
+<p>那么，这些runtime env是部署在哪里的呢？答案正是Docker. 为什么要用Docker呢？主要有两方面的考虑：</p>
+<ul>
+<li>第一，isolation. 不同的用户将不同的microservices部署在同一个Serverless platform上，我们当然希望他们互相隔离，互不干扰了。而Docker container的沙箱 (sandboxing) 机制正是基于隔离的思想设计的。将这些不同的microservices装载到不同的docker container中，不仅能实现进程、网络以及文件系统的隔离（namespace隔离），还实现了 CPU、内存等资源的隔离（cgroup隔离）</li>
+<li>第二，personalization. 一千个microservices就有一千个runtime envs. 要在Serverless Platform上支持无数种个性化的runtime env似乎很难做到。这就是Docker要解决的第二个问题：Docker container中的runtime env要怎么构建？事实上，Docker的存储驱动允许我们通过添加多层docker image (只读镜像文件) 来构建我们期望的runtime env, 然后在顶层添加可写的container层，如下图。而这些docker image可以从远程下载。<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/2017-11-30-docker-container-layer.png" alt="docker image"></li>
+</ul>
+<p>AWS Lambda可以间接使用Docker（比如<a href="https://www.sciencedirect.com/science/article/abs/pii/S0167739X17316485" target="_blank" rel="noopener">SCAR</a>以及<a href="https://blog.iron.io/introducing-aws-lambda-support/" target="_blank" rel="noopener">Project Kratos</a>都提供了使用docker的解决方案）。而很多开源的serverless platform都直接基于docker实现了它们的container（比如OpenLambda, OpenWhisk, OpenFaaS等）。</p>
+<p>  <strong>关于Docker的启动过程所用到的技术和原理</strong>，<a href="https://draveness.me/docker/" target="_blank" rel="noopener">这篇文章</a>做了较详细的解释。</p>
+<p>关于Serverless, Edge Computing, Orchestration, Containerization, Microservices几个概念的关系，我试着画了下面这张图来理解它们：<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/serverless_concepts.png" alt="Concepts"><br>Edge Computing是Serverless的应用场景：由于Edge的资源很有限，因此想到用Serverless Platform来部署功能服务，最大化资源利用。而在Serverless Platform中，各种功能服务以Microservices的形式存在，Microservices由某些函数Func构成。这些Microservices在container（比如Docker)中运行，它们各自有着personalized runtime env, 互相隔离。而不同的Container可能运行在不同的OS中甚至不同的server中，Orchestrator（比如Kubernetes）可以实现自动化批量容器的启动、管理、升级以及清除。</p>
+<h1 id="Docker-low-latency方向优化工作总结"><a href="#Docker-low-latency方向优化工作总结" class="headerlink" title="Docker low-latency方向优化工作总结"></a>Docker low-latency方向优化工作总结</h1><p>由于microservices是运行在container中的，各自有着personalized runtime env, 互相隔离。当一个invocation来临时，microservices就会被装载到一个或者是新创建的，或者是已存在的container中执行。而container的启动和准备都有不小的开销（docker run命令大约需要300ms).<br>所以，如何让container快速响应invocation并返回结果是降低end-to-end时延的重要优化方向。接下来的部分主要整理了近几年与Docker low-latency优化有关的工作的思路和解决方案。</p>
+<h2 id="2014"><a href="#2014" class="headerlink" title="2014"></a>2014</h2><h3 id="AWS-Lambda"><a href="#AWS-Lambda" class="headerlink" title="AWS Lambda"></a>AWS Lambda</h3><p>AWS Lambda是一个完整的serverless platform. 为了避免docker reinitialization的开销，AWS Lambda使用了Container reuse技术, 若两次invoke同一个function, 且两次invocation的间隔不久，那么AWS Lambda中类似Load Balancer的模块将把该invocation再次分配给之前装载该function的容器。于是AWS Lambda的容器引入了<a href="https://aws.amazon.com/blogs/compute/container-reuse-in-lambda/" target="_blank" rel="noopener">Freeze/Thaw的机制</a>来保存之前的background processes. </p>
+<p>前面提到，AWS Lambda并没有直接支持docker. 而2018年A. Pérez等人提出的<a href="https://www.sciencedirect.com/science/article/abs/pii/S0167739X17316485" target="_blank" rel="noopener">SCAR</a>框架将docker与AWS Lambda进行了整合，如下图：<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200523155341.png" alt="SCAR"><br>图中红框部分所示的/tmp就是一个缓存区，不仅可以用来缓存docker image, 还可以缓存freezed docker container for reusing. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0167739X17316485" target="_blank" rel="noopener">SCAR</a>从invocation type, container sizes和cache waiting time三个方面测试了<a href="https://aws.amazon.com/blogs/compute/container-reuse-in-lambda/" target="_blank" rel="noopener">Freeze/Thaw机制</a>，从而提出了最优的调用方式，并将它用于一个image process的use case.</p>
+<h2 id="2016"><a href="#2016" class="headerlink" title="2016"></a>2016</h2><h3 id="OpenWhisk"><a href="#OpenWhisk" class="headerlink" title="OpenWhisk"></a>OpenWhisk</h3><p>OpenWhisk是一个完整的serverless platform. 在容器上的优化比AWS Lambda更进一步，除了用到container reuse技术，还开发了<a href="https://medium.com/openwhisk/squeezing-the-milliseconds-how-to-make-serverless-platforms-blazing-fast-aea0e9951bd0" target="_blank" rel="noopener">container prewarming技术</a>。OpenWhisk的invoker执行一个action的过程有三步：</p>
+<ul>
+<li>docker run: 启动容器; docker inspect: 获取docker的IP地址（为了下面的HTTP calls)</li>
+<li>/init: 将action code载入docker</li>
+<li>/run: 执行action code</li>
+</ul>
+<p>Container reuse固然是比较理想的做法，使用这一技术仅仅只需执行/run. 但是container reuse无法解决cold start的问题，而且内存上的开销也较大。Container prewarming的基本思想就是预先准备一些加载了常用runtime的container, 在<a href="https://dl.acm.org/doi/abs/10.1145/3133850.3133855" target="_blank" rel="noopener">The Serverless Trilemma</a>这篇文章中，这些container被叫做stem cell container（干细胞容器），只需通过/init命令将action code载入docker，并/run执行即可。Cold、prewarm、reuse(warm)各自所需的步骤如下图所示：<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200522114735.png" alt="container hot"></p>
+<p><a href="https://github.com/apache/openwhisk" target="_blank" rel="noopener">项目代码</a></p>
+<h3 id="Slacker"><a href="#Slacker" class="headerlink" title="Slacker"></a>Slacker</h3><p><a href="https://www.usenix.org/conference/fast16/technical-sessions/presentation/harter" target="_blank" rel="noopener">Slacker</a>是一个集成在docker中的存储驱动，针对的问题是当docker从registry去copy images（镜像）时会产生很大时延。实验表明，docker每次copy的images data只有6.4%是真正用到了的。于是它在Docker优化层面提出了Lazy cloning技术，即只取程序真正需要的image data: 首先，Slacker重新设计了Docker默认的storage driver（AUFS），如下图：<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200522165930.png" alt="Slacker storage driver"></p>
+<p>两者都使用了ext4文件系统，但是一个很重要的区别在于Slacker的ext4的后端是network disk (NFS Server)，而AUFS的ext4的后端是local disk. 因此，Slacker就可以从network disk中lazy clone, 而AUFS必须将所有data copy到local disk中。基于这一点，Slacker重新实现了Docker的Diff (push) 和ApplyDiff (pull) 原语操作, 重命名为snapshot和clone. Slacker的整体Architecture如下图：</p>
+<p><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200522170706.png" alt="Slacker Architecture"></p>
+<h3 id="OpenLambda"><a href="#OpenLambda" class="headerlink" title="OpenLambda"></a>OpenLambda</h3><p>OpenLambda是一个完整的serverless platform. <a href="https://www.usenix.org/node/196323" target="_blank" rel="noopener">OpenLambda的这篇文章</a>对container for AWS Lambda做了一些实验和分析。但是，它并没有给出具体的优化方案，而是提出了很多可以优化的方向和挑战，为今后的工作<del>挖了不少坑</del>提供了不少思路。</p>
+<p>比如文章的4.1节提出Container的复用能大大降低时延，但是内存是主要瓶颈：用来reuse的paused container的内存开销与running container几乎是一样的；4.2节提出高级语言的解释器优化需要dynamic profiling, 然而由于serverless的stateless function的特性，两次对同一个函数的invocation可能都不是在同一个容器上，因此提供profiling feedback就是很大的困难；4.3节提出代码引用第三方库可能会造成很大延迟，而上面提到的<a href="https://www.usenix.org/conference/fast16/technical-sessions/presentation/harter" target="_blank" rel="noopener">Slacker</a>的lazy cloning是一种可能的解决方法；另一种可能的解决方法是第三方库的本地化支持（2018年的SOCK就做了这方面的工作，见下文），但这对内存的负载均衡方面提出了巨大挑战（4.7节有所讨论）。</p>
+<p><a href="https://github.com/open-lambda/open-lambda" target="_blank" rel="noopener">项目代码</a></p>
+<h2 id="2018"><a href="#2018" class="headerlink" title="2018"></a>2018</h2><h3 id="SOCK"><a href="#SOCK" class="headerlink" title="SOCK"></a>SOCK</h3><p><a href="https://www.usenix.org/conference/atc18/presentation/oakes" target="_blank" rel="noopener">SOCK</a>是一个集成在OpenLambda中、替换docker的container，主要针对Docker的两个方面进行优化：</p>
+<ul>
+<li>Docker的沙箱模型启动时调用Linux primitives的优化</li>
+<li>Docker运行Python handler时import Python libraries的优化</li>
+</ul>
+<p>针对这两个方面，SOCK提出三级解决方案：</p>
+<ul>
+<li>考虑serverless platform场景的特点，对Docker的沙箱机制进行改造，设计了出了SOCK container. 具体地：<ul>
+<li>在存储驱动方面，将UFS(union file system)换成bind mount;</li>
+<li>在cgroup隔离方面，不再单独创建cgroup，而是使用OpenLambda创建的cgroup pool.</li>
+<li>在namespace隔离方面，舍弃了mount namespace和network namespace隔离。直接使用更快的chroot而不是mount namespace来切换root, 直接在容器中加入一个Unix domain socket来与OpenLambda manager进行通信，而不需要network namespace来虚拟化端口进行通信了</li>
+</ul>
+</li>
+<li>设计好容器内部后，又设计了Generalized Zygotes机制来避免import libs的开销。首先，启动多个Zygote container，每个container都有一个helper进程，这些helper进程pre-import不同的包，并且监听上述提到的Unix domain socket. 当helper进程监听到有invoked lambda需要它的包时，便通过fork的方式直接创建子helper进程，并load lambda code，成为handler SOCK container，避免了包的初始化开销。对比Zygote containers与OpenWhisk的stem cell container发现，Zygote通过fork创建新的容器并载入action code，而OpenWhisk直接将action code载入stem cell container.</li>
+<li>有了这些Zygote containers, 就需要上级来管理它们，因为Zygotes占用内存且包的使用频率会发生变化，所以设计了import-cache policy来选择和替换Zygotes. 除了import-cache, 还设计了handler-cache(类似上面提到的AWS Lambda的freeze/thaw机制)以及install cache（直接将远程packages下载到本地disk）。</li>
+</ul>
+<p>下面是三级优化方案具体的示意图：<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/sock_2020-05-23_19-59-37.jpg" alt="SOCK opt"></p>
+<p>另外，由于SOCK是集成在OpenLambda中的，所以可以在<a href="https://github.com/open-lambda/open-lambda" target="_blank" rel="noopener">OpenLambda的项目代码</a>中找到SOCK的实现。</p>
+<h3 id="SAND"><a href="#SAND" class="headerlink" title="SAND"></a>SAND</h3><p><a href="https://www.usenix.org/conference/atc18/presentation/akkus" target="_blank" rel="noopener">SAND</a>是一个完整的serverless系统，针对下面两个问题进行优化：</p>
+<ul>
+<li>目前多数serverless platform一个container只执行一个function。当一个外部事件到来，container创建，function执行；另一个相关联的外部事件到来，需要执行与前一个function相关联的另外一个function时，需要cold start container.</li>
+<li>目前的serverless platform几乎都没有考虑同一个application functions之间的interaction, 作者举了image process pipeline的例子，指出这类pipeline service需要connect multiple functions.</li>
+</ul>
+<p>针对这两个问题，作者提出两种机制来解决（如下图）：</p>
+<ul>
+<li>比container sandboxing更细粒度的application sandboxing机制，使得相同application的不同function可以更快启动</li>
+<li>分层的消息队列与存储机制，使得相同application的不同function支持interaction.<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200524164916.png" alt="SAND"><h2 id="2019"><a href="#2019" class="headerlink" title="2019"></a>2019</h2><h3 id="Replayable-Execution"><a href="#Replayable-Execution" class="headerlink" title="Replayable Execution"></a>Replayable Execution</h3></li>
+</ul>
+<p>Replayable Execution是应用于HuaWei’s FaaS Java framework的机制，它替换了framework中的JVM execution机制。在Huawei Canada Research Centre发表的<a href="https://dl.acm.org/doi/abs/10.1145/3302424.3303978" target="_blank" rel="noopener">文章</a>有详细介绍，技术细节很多，这里只介绍它最基本的思想。</p>
+<p>Replayable Execution主要从两个方面优化，既达到了low-latency的目的，又节省了运行的内存开销：</p>
+<ul>
+<li>第一，在大量数据已经完成计算时（如下图中的t时刻)，将它们移动到disk中，而disk中的数据可以on-demand paged into memory；</li>
+<li>第二，减少了JVM场景下的container reuse技术的内存开销。因为Containers for reusing处于paused状态，于是想到利用checkpoint &amp; restore(C&amp;R)技术，当程序运行到某个时间点时（如下图中的s点，大部分数据计算工作已完成，内存中数据较少），将当前数据checkpoint到disk中形成common image.<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200524133614.png" alt="phase"></li>
+</ul>
+<p>于是，后续的多个invocation就能通过restore common image获得framework data, 跳过framework initialization所需的计算，实现jump start：</p>
+<p><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200524134602.png" alt="jump start"></p>
+<p>要实现这一过程，需要page sharing技术的支持。而Linux kernel的page sharing并不适用于container execution model. 作者用memory mapping技术辅助解决了这一不适用的问题。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li>docker的low-latency优化几乎都围绕着warming handler, prewarming containers和remote fetching这三个方面展开，只是实现方式各不相同。</li>
+<li>不同的场景决定了不同的优化方向，在特定场景下可以牺牲通用性以换取低时延。</li>
+</ul>
+<h1 id="开源代码"><a href="#开源代码" class="headerlink" title="开源代码"></a>开源代码</h1><ul>
+<li><a href="https://github.com/apache/openwhisk" target="_blank" rel="noopener">OpenWhisk</a> - Open source and enterprise-ready serverless platform that executes functions in any language (including Docker Containers) in response to events, powering IBM Cloud Functions, Adobe I/O Runtime and a number of on-prem deployments worldwide.</li>
+<li><a href="https://github.com/open-lambda/open-lambda" target="_blank" rel="noopener">OpenLambda</a> - An open source serverless computing platform</li>
+<li><a href="https://github.com/openfaas/faas" target="_blank" rel="noopener">OpenFaaS</a> - Serverless Functions Made Simple for Docker and Kubernetes, <a href="https://blog.alexellis.io/functions-as-a-service/" target="_blank" rel="noopener">Alex Ellis’s Blog-OpenFaaS</a>.</li>
+<li><a href="https://github.com/fission/fission" target="_blank" rel="noopener">fission</a> - Fast and Simple Serverless Functions for Kubernetes, maintain <strong>a pool of “warm” containers</strong>.</li>
+<li><a href="https://github.com/nuclio/nuclio" target="_blank" rel="noopener">nuclio</a> - “Serverless” for <strong>Real-Time Events</strong> and Data Processing, portability across <strong>low-power devices</strong>, laptops, <strong>edge and on-prem clusters</strong>, and public clouds</li>
+<li><a href="https://leveros.readme.io/docs/home" target="_blank" rel="noopener">LeverOS</a> - an open-source project that uses an RPC model to communicate between services. Computing resources in LeverOS can be tagged, so repeated function invocations can be targeted to a specific container to optimize runtime performance, such as <strong>taking advantage of warm caches in a container</strong>.</li>
+<li><a href="https://github.com/iron-io/functions" target="_blank" rel="noopener">IronFunctions</a> - an open source serverless platform</li>
+<li><a href="https://github.com/anaibol/awesome-serverless" target="_blank" rel="noopener">awesome-serverless</a> - A curated list of awesome services, solutions and resources for serverless / nobackend applications.<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1>[1] <a href="https://arxiv.org/abs/1706.03178" target="_blank" rel="noopener">Serverless Computing: Current Trends and Open Problems</a><br>[2] <a href="https://www.usenix.org/node/196323" target="_blank" rel="noopener">Serverless Computation with OpenLambda</a><br>[3] <a href="https://medium.com/openwhisk/squeezing-the-milliseconds-how-to-make-serverless-platforms-blazing-fast-aea0e9951bd0" target="_blank" rel="noopener">Squeezing the milliseconds: How to make serverless platforms blazing fast!</a><br>[4] <a href="https://www.usenix.org/conference/atc18/presentation/oakes" target="_blank" rel="noopener">SOCK: Rapid Task Provisioning with Serverless-Optimized Containers</a><br>[5] <a href="https://www.usenix.org/conference/fast16/technical-sessions/presentation/harter" target="_blank" rel="noopener">Slacker: Fast distribution with lazy docker containers</a><br>[6] <a href="https://dl.acm.org/doi/abs/10.1145/3133850.3133855" target="_blank" rel="noopener">The Serverless Trilemma</a><br>[7] <a href="https://aws.amazon.com/blogs/compute/container-reuse-in-lambda/" target="_blank" rel="noopener">AWS Lambda container reuse</a><br>[8] <a href="https://dl.acm.org/doi/abs/10.1145/3302424.3303978" target="_blank" rel="noopener">Replayable Execution Optimized for Page Sharing for a Managed Runtime Environment</a><br>[9] <a href="https://www.openfaas.com/" target="_blank" rel="noopener">OpenFaaS</a><br>[10] <a href="https://draveness.me/docker/" target="_blank" rel="noopener">Docker核心技术</a><br>[11] <a href="https://ieeexplore.ieee.org/abstract/document/8814513" target="_blank" rel="noopener">On-Premises Serverless Computing for Event-Driven Data Processing Applications</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">搜索</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">边缘计算</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://uestcljx.github.io/2020/05/19/2020-05-19-serverless/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/05/23/2020-05-23-exist/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          存在先于本质
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/05/08/2020-05-08-theme/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">本站主题配置</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#引"><span class="toc-number">1.</span> <span class="toc-text">引</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Serverless-Docker研究背景"><span class="toc-number">2.</span> <span class="toc-text">Serverless Docker研究背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker-low-latency方向优化工作总结"><span class="toc-number">3.</span> <span class="toc-text">Docker low-latency方向优化工作总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2014"><span class="toc-number">3.1.</span> <span class="toc-text">2014</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-Lambda"><span class="toc-number">3.1.1.</span> <span class="toc-text">AWS Lambda</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2016"><span class="toc-number">3.2.</span> <span class="toc-text">2016</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenWhisk"><span class="toc-number">3.2.1.</span> <span class="toc-text">OpenWhisk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Slacker"><span class="toc-number">3.2.2.</span> <span class="toc-text">Slacker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenLambda"><span class="toc-number">3.2.3.</span> <span class="toc-text">OpenLambda</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2018"><span class="toc-number">3.3.</span> <span class="toc-text">2018</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SOCK"><span class="toc-number">3.3.1.</span> <span class="toc-text">SOCK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SAND"><span class="toc-number">3.3.2.</span> <span class="toc-text">SAND</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2019"><span class="toc-number">3.4.</span> <span class="toc-text">2019</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Replayable-Execution"><span class="toc-number">3.4.1.</span> <span class="toc-text">Replayable Execution</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开源代码"><span class="toc-number">5.</span> <span class="toc-text">开源代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">6.</span> <span class="toc-text">参考文献</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "RXk5cxUXPCYzrnEFbxM6EUEH-gzGzoHsz",
+            app_key: "aqV8PeavEMHrl4u8lVemUlfR",
+            placeholder: "欢迎留言😋",
+            path:window.location.pathname, 
+            avatar:"retro"
+        });
+    }
+    // document.body.addEventListener('click', function(e) {
+    // if (e.target.classList.contains('vsubmit')) {
+    //     const email = document.querySelector('input[type=email]');
+    //     const nick = document.querySelector('input[name=nick]');
+    //     const reg = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    //     if (!email.value || !nick.value || !reg.test(email.value)) {
+    //         const str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
+    //         const vmark = document.querySelector('.vmark');
+    //         vmark.innerHTML = str;
+    //         vmark.style.display = 'block';
+
+    //         setTimeout(function() {
+    //             vmark.style.display = 'none';
+    //             vmark.innerHTML = '';
+    //         }, 2500);
+    //     }
+    // }
+    // });
+</script>
+
+  </section>
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -260,9 +553,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,
