@@ -6,18 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://uestcljx.github.io">
-  <title>Tag: 博客配置 | Jiangxin-Li</title>
+  <title>K3S在Win10-WSL 2上的部署 | Jiangxin-Li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="三尺微命，一介书生。求学于蓉城西边，清水河畔。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jiangxin-Li">
-<meta property="og:url" content="https://uestcljx.github.io/tags/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/index.html">
+  <meta name="description" content="引本文介绍如何在Windows 10上通过WSL 2部署超轻量级容器服务管理工具–K3s, 并查看其内存占用情况。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="K3S在Win10-WSL 2上的部署">
+<meta property="og:url" content="https://uestcljx.github.io/2020/06/07/2020-06-07-k3s_deploy/index.html">
 <meta property="og:site_name" content="Jiangxin-Li">
-<meta property="og:description" content="三尺微命，一介书生。求学于蓉城西边，清水河畔。">
+<meta property="og:description" content="引本文介绍如何在Windows 10上通过WSL 2部署超轻量级容器服务管理工具–K3s, 并查看其内存占用情况。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200608100643.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200608101532.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200608113530.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200608104400.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/cat_k3s.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200608132154.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200608112706.png">
+<meta property="article:published_time" content="2020-06-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-06-08T07:39:49.385Z">
 <meta property="article:author" content="Jiangxin-Li">
-<meta property="article:tag" content="蒟蒻">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="K3S">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200608100643.png">
   
   
     <link rel="icon" href="/assets/img/favicon.png">
@@ -170,98 +182,269 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2020-06-07-k3s_deploy" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/08/2020-05-08-theme/" class="archive-article-date">
-  	<time datetime="2020-05-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/08/2020-05-08-theme/">本站主题配置</a>
+    <h1 class="article-title" itemprop="name">
+      K3S在Win10-WSL 2上的部署
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        <!--显示阅读次数-->
+      
+        <br/>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+        </span>
+        </a>
+        
+        
+        <a href="/2020/06/07/2020-06-07-k3s_deploy/" class="archive-article-date">
+  	<time datetime="2020-06-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-07</time>
+</a>
+        
+      </header>
+    
+        <!-- 目录内容 -->
+    <!-- 
+      <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+      <strong class="toc-title">文章目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#引"><span class="toc-number">1.</span> <span class="toc-text">引</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#K3s"><span class="toc-number">2.</span> <span class="toc-text">K3s</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#WSL-2-on-Win-10"><span class="toc-number">3.</span> <span class="toc-text">WSL 2 on Win 10</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#K3s-on-WSL-2"><span class="toc-number">4.</span> <span class="toc-text">K3s on WSL 2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">5.</span> <span class="toc-text">参考文献</span></a></li></ol>
+          </div>
+    <script type="text/javascript">
+    function showToc(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:block");
+      show_toc_btn.setAttribute("style","display:none");
+      };
+    function showBtn(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:none");
+      show_toc_btn.setAttribute("style","display:block");
+      };
+    </script>
+        		 -->
+    <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="引"><a href="#引" class="headerlink" title="引"></a>引</h1><p>本文介绍如何在Windows 10上通过WSL 2部署超轻量级容器服务管理工具–K3s, 并查看其内存占用情况。</p>
+<a id="more"></a>
+<h1 id="K3s"><a href="#K3s" class="headerlink" title="K3s"></a>K3s</h1><p>首先介绍K3s是什么。一句话，K3s是轻量级的K8s，专为资源有限的场景设计。那么K8s又是什么呢？K8s是Kubernetes的简称，因为开头的K和末尾的s之间有8个字母，因此得名。简单地说，K8s能够自动化容器的管理过程。关于K8s为什么如此有用，可以参阅<a href="https://kubernetes.io/zh/docs/concepts/overview/what-is-kubernetes/" target="_blank" rel="noopener">这份文档</a>。<br>我在<a href="https://uestcljx.github.io/2020/05/19/2020-05-19-serverless/">之前一篇文章</a>中也简单描绘了Serverless, Edge Computing, Orchestration, Containerization和Microservices几个概念的关系（如下图），其中的Orchestration目前就是Kubernetes的天下。<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200608100643.png" alt="prev_art"><br>总结来说，K3s就是资源有限场景下的K8s. 在<a href="https://k3s.io/" target="_blank" rel="noopener">K3s的官方网站</a>也可以看到，K3s是专为IoT, Edge computing场景而设计的。<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200608101532.png" alt="K3s"></p>
+<h1 id="WSL-2-on-Win-10"><a href="#WSL-2-on-Win-10" class="headerlink" title="WSL 2 on Win 10"></a>WSL 2 on Win 10</h1><p>我在<a href="https://uestcljx.github.io/2020/03/13/2020-03-13-WSL/">之前一篇文章中</a>提到了WSL. 简单地说，WSL是Windows官方基于Windows内核开发的在Win 10上运行的Linux子系统。它能够支持各种各样的Linux发行版(Ubuntu, Debian, CentOS, …), 而且比虚拟机或双系统的启动都要迅速很多，因为他只是Win 10上的一个应用。<br>WSL 2是升级版的WSL 1. 关于两者的差异可查阅<a href="https://docs.microsoft.com/zh-cn/windows/wsl/compare-versions" target="_blank" rel="noopener">这份文档</a>。<br>安装WSL 2可参照<a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10" target="_blank" rel="noopener">这份文档</a>。安装过程中遇到的所有问题都可以参考<a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10#troubleshooting-installation" target="_blank" rel="noopener">这份文档</a>进行排查。比如我从WSL 1转成WSL 2的过程中遇到了报错“由于虚拟磁盘系统的某个限制，无法完成所请求的操作。虚拟硬盘文件必须是解压缩的且未加密的，并且不能是稀疏的”，通过<a href="https://github.com/microsoft/WSL/issues/4103#issuecomment-501885534" target="_blank" rel="noopener">这段引导</a>排除了错误。</p>
+<h1 id="K3s-on-WSL-2"><a href="#K3s-on-WSL-2" class="headerlink" title="K3s on WSL 2"></a>K3s on WSL 2</h1><p>我们不能直接使用<a href="https://k3s.io/" target="_blank" rel="noopener">K3s官网</a>上推荐的用curl命令安装K3s，因为WSL 2没有supervisor. 因此我们采用如下方式安装K3s:</p>
+<ol>
+<li><p>从 <a href="https://github.com/rancher/k3s/releases/tag/v1.18.3+k3s1" target="_blank" rel="noopener">这里</a>下载k3s二进制文件 (如下图) 到<code>D:\k3s</code><br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200608113530.png" alt="k3s_bin"></p>
+</li>
+<li><p>从WSL 2中进入<code>/mnt/d/k3s</code>，并输入命令：<code>chmod +x k3s</code>, 给予执行权限</p>
+</li>
+<li><p>运行K3s: <code>sudo ./k3s server</code><br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200608104400.png" alt="run_k3s"></p>
+</li>
+<li><p>在Windows下安装kubectl（<a href="https://kubernetes.io/zh/docs/tasks/tools/install-kubectl/" target="_blank" rel="noopener">这份文档</a>指导如何安装kubectl), 在WSL 2中执行<code>cat /etc/rancher/k3s/k3s.yaml</code>, 将返回的全部内容copy到Windows下的<code>%USERHOME%\.kube\config</code> (没有.kube文件夹就新建一个并在里面创建config文件), 并修改<code>server: https://127.0.0.1:6443</code> 那一行为WSL 2的IP address(在WSL 2中用<code>ip addr show dev eth0</code>获取)+<code>:6443</code>. 比如我的会修改为：<code>server: https://172.29.149.132:6443</code>.<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/cat_k3s.jpg" alt="cat_k3s"></p>
+</li>
+<li><p>在Windows的Powershell中用<code>kubectl get nodes</code>命令查看节点。可以看到，当前PC (desktop-1thuqd4) 是master节点。<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200608132154.png" alt="master"></p>
+</li>
+<li><p>然后我们再在WSL 2中用<code>top</code>命令查看内存占用情况：<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/20200608112706.png" alt="mem"><br>从上图可以看到, 总内存约6GB, k3s-server的内存占用比为7.4%, 因此K3s占用内存约6GB * 7.4% = 460MB</p>
+</li>
+</ol>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[1] <a href="https://kubernetes.io/zh/docs/concepts/overview/what-is-kubernetes/" target="_blank" rel="noopener">Kubernetes中文文档</a><br>[2] <a href="https://k3s.io/" target="_blank" rel="noopener">K3s官网</a><br>[3] <a href="https://gist.github.com/ibuildthecloud/1b7d6940552ada6d37f54c71a89f7d00" target="_blank" rel="noopener">k3s on WSL2</a><br>[4] <a href="https://www.freshbrewed.science/k3s-on-win-10-wsl-2/index.html" target="_blank" rel="noopener">K3S on WIN 10 WSL 2</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">博客配置</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/26/2020-04-26-Picgo/" class="archive-article-date">
-  	<time datetime="2020-04-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/26/2020-04-26-Picgo/">七牛云图床转Github图床</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">博客配置</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">K3S</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://uestcljx.github.io/2020/06/07/2020-06-07-k3s_deploy/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/05/23/2020-05-23-exist/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">存在先于本质</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#引"><span class="toc-number">1.</span> <span class="toc-text">引</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#K3s"><span class="toc-number">2.</span> <span class="toc-text">K3s</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#WSL-2-on-Win-10"><span class="toc-number">3.</span> <span class="toc-text">WSL 2 on Win 10</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#K3s-on-WSL-2"><span class="toc-number">4.</span> <span class="toc-text">K3s on WSL 2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">5.</span> <span class="toc-text">参考文献</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "RXk5cxUXPCYzrnEFbxM6EUEH-gzGzoHsz",
+            app_key: "aqV8PeavEMHrl4u8lVemUlfR",
+            placeholder: "欢迎留言😋",
+            path:window.location.pathname, 
+            avatar:"retro"
+        });
+    }
+    // document.body.addEventListener('click', function(e) {
+    // if (e.target.classList.contains('vsubmit')) {
+    //     const email = document.querySelector('input[type=email]');
+    //     const nick = document.querySelector('input[name=nick]');
+    //     const reg = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    //     if (!email.value || !nick.value || !reg.test(email.value)) {
+    //         const str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
+    //         const vmark = document.querySelector('.vmark');
+    //         vmark.innerHTML = str;
+    //         vmark.style.display = 'block';
+
+    //         setTimeout(function() {
+    //             vmark.style.display = 'none';
+    //             vmark.innerHTML = '';
+    //         }, 2500);
+    //     }
+    // }
+    // });
+</script>
+
+  </section>
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -294,9 +477,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,
