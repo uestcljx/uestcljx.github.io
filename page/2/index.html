@@ -172,6 +172,266 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2020-03-25-DFS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/25/2020-03-25-DFS/">初级深度优先搜索(DFS)与回溯</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+      
+        
+        <a href="/2020/03/25/2020-03-25-DFS/" class="archive-article-date">
+  	<time datetime="2020-03-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
+</a>
+        
+      </header>
+    
+        <!-- 目录内容 -->
+    <!-- 		 -->
+    <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <br>
+
+<h1 id="引"><a href="#引" class="headerlink" title="引"></a>引</h1><p>&emsp;&emsp;DFS(Depth First Search)即深度优先搜索，或简称深搜。回溯是一种从当前状态回退到之前状态的手段，经常和DFS打配合，效果奇佳。入门一个算法的最好方法就是做题啦~ 所以本文记录了我快速入门DFS和回溯的两个例题，以及应用DFS+回溯所解决的两个有趣的问题。<br>&emsp;&emsp;我第一眼看到DFS的时候觉得这个算法和以前学的都不太一样，虽然它本质上是暴力求解，但它让我第一次感觉到编程本身的乐趣。我的意思是，之前我觉得虽然很多算法本身很有趣很神奇，但是为这些算法编程却多多少少是枯燥的。但是DFS却是一个能让写出来的代码变得简洁优雅的神奇算法。它充分地利用了计算机内部隐式栈的特点实现了普通手段难以做到的事，使得写代码本身有了极大的乐趣和成就感。</p>
+        
+          <a class="article-more-a" href="/2020/03/25/2020-03-25-DFS/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">搜索</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/25/2020-03-25-DFS/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2020-03-21-qsort" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/21/2020-03-21-qsort/">快速排序</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+      
+        
+        <a href="/2020/03/21/2020-03-21-qsort/" class="archive-article-date">
+  	<time datetime="2020-03-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
+</a>
+        
+      </header>
+    
+        <!-- 目录内容 -->
+    <!-- 		 -->
+    <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <br>
+
+<h1 id="引"><a href="#引" class="headerlink" title="引"></a>引</h1><p>&emsp;&emsp;本文介绍快速排序的原理和实现，尤其是不同划分方法实现的差别。然后介绍快排的一个应用：利用快速排序的划分思想降低算法的时间复杂度。<br>&emsp;&emsp;顾名思义，快速排序是实践中已知最快的排序算法。因为它的内部循环非常精炼。最好和平均情况复杂度都能达到O(NlogN), 最坏情况复杂度为O(N^2), 不过只要稍加改进便可避免最坏情况。快排算法设计非常巧妙，它的实现方式不像归并或者插入排序那样直观，需要仔细思考才能知其所以然，尤其是双指针实现划分的那部分，堪称快排的精髓。</p>
+        
+          <a class="article-more-a" href="/2020/03/21/2020-03-21-qsort/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/21/2020-03-21-qsort/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2020-03-13-WSL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/13/2020-03-13-WSL/">WSL大法好</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+      
+        
+        <a href="/2020/03/13/2020-03-13-WSL/" class="archive-article-date">
+  	<time datetime="2020-03-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
+</a>
+        
+      </header>
+    
+        <!-- 目录内容 -->
+    <!-- 		 -->
+    <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <br>
+
+
+<h2 id="我为什么想到用Linux系统？"><a href="#我为什么想到用Linux系统？" class="headerlink" title="我为什么想到用Linux系统？"></a>我为什么想到用Linux系统？</h2><p>因为我想为这个网站加一个photos plugin. 而这种photos plugin需要一个依赖库。当我在Windows系统下尝试安装这个依赖库多次失败后，卑微的我决定求助于Linux系统Orz。。。</p>
+<p><del>众所周知,</del> Linux系统可以下载很多无法兼容Windows系统的Linux专用软件，而且安装过程极其极其简单，也有极小极小的概率出错（相比Windows）。这是Linux系统的巨大优势之一。</p>
+<h2 id="双系统？虚拟机？WSL"><a href="#双系统？虚拟机？WSL" class="headerlink" title="双系统？虚拟机？WSL!"></a>双系统？虚拟机？WSL!</h2><p>目前在Windows系统上想使用Linux系统，主流方法是双系统或者虚拟机。然鹅，双系统配置太麻烦，有点小题大做；而虚拟机因为只能分到较少的资源，所以卡顿很明显。还有些在Windows上模拟Linux的封装器如Git Bash，CYGWIN等也不够完善，总是会有各种各样的issues。<br>于是，为了解决各种不足，Windows推出了大杀器，可以说是目前最好的解决方案之一。它就是本文的主角：WSL。</p>
+        
+          <a class="article-more-a" href="/2020/03/13/2020-03-13-WSL/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/13/2020-03-13-WSL/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2020-03-06-NN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -599,6 +859,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">crowdsourcing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
             
             <div class="clearfix"></div>
