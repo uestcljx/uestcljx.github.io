@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://uestcljx.github.io">
-  <title>Archives: 2020 | Jiangxin-Li</title>
+  <title>Financial Text Analysis方向 论文笔记 | Jiangxin-Li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="三尺微命，一介书生。求学于蓉城西边，清水河畔。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jiangxin-Li">
-<meta property="og:url" content="https://uestcljx.github.io/archives/2020/page/2/index.html">
+  <meta name="description" content="Introduction&amp;emsp;&amp;emsp;本文列举了中科院计算所MLDM大组-敖翔老师小组在金融文本情感分析(Financial Text Analysis)方向发表的几篇论文的动机、挑战和贡献，并提出了自己对这个方向研究思路的理解。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Financial Text Analysis方向 论文笔记">
+<meta property="og:url" content="https://uestcljx.github.io/2020/09/08/2020-09-08-financial/index.html">
 <meta property="og:site_name" content="Jiangxin-Li">
-<meta property="og:description" content="三尺微命，一介书生。求学于蓉城西边，清水河畔。">
+<meta property="og:description" content="Introduction&amp;emsp;&amp;emsp;本文列举了中科院计算所MLDM大组-敖翔老师小组在金融文本情感分析(Financial Text Analysis)方向发表的几篇论文的动机、挑战和贡献，并提出了自己对这个方向研究思路的理解。">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-09-09T08:32:30.592Z">
 <meta property="article:author" content="Jiangxin-Li">
-<meta property="article:tag" content="蒟蒻">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="神经网络">
+<meta property="article:tag" content="论文笔记">
 <meta name="twitter:card" content="summary">
   
   
@@ -170,238 +174,160 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2020-09-08-financial" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Financial Text Analysis方向 论文笔记
+    </h1>
+  
+
+        <!--显示阅读次数-->
+      
+        <br/>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+        </span>
+        </a>
+        
+        
+        <a href="/2020/09/08/2020-09-08-financial/" class="archive-article-date">
+  	<time datetime="2020-09-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-08</time>
+</a>
+        
+      </header>
     
+        <!-- 目录内容 -->
+    <!-- 
+      <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+      <strong class="toc-title">文章目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Beyond-Polarity-Interpretable-Financial-Sentiment-Analysis-with-Hierarchical-Query-driven-Attention-IJCAI-2018"><span class="toc-number">2.</span> <span class="toc-text">Beyond Polarity: Interpretable Financial Sentiment Analysis with Hierarchical Query-driven Attention (IJCAI 2018)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reading-Like-HER-Human-Reading-Inspired-Extractive-Summarization-EMNLP2019"><span class="toc-number">3.</span> <span class="toc-text">Reading Like HER: Human Reading Inspired Extractive Summarization (EMNLP2019)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Unsupervised-Neural-Aspect-Extraction-with-Sememes-IJCAI-2019"><span class="toc-number">4.</span> <span class="toc-text">Unsupervised Neural Aspect Extraction with Sememes (IJCAI 2019)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Summary"><span class="toc-number">5.</span> <span class="toc-text">Summary</span></a></li></ol>
+          </div>
+    <script type="text/javascript">
+    function showToc(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:block");
+      show_toc_btn.setAttribute("style","display:none");
+      };
+    function showBtn(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:none");
+      show_toc_btn.setAttribute("style","display:block");
+      };
+    </script>
+        		 -->
+    <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <br>
+
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>&emsp;&emsp;本文列举了中科院计算所MLDM大组-敖翔老师小组在金融文本情感分析(Financial Text Analysis)方向发表的几篇论文的动机、挑战和贡献，并提出了自己对这个方向研究思路的理解。</p>
+<a id="more"></a>
+
+<!-- # 重要术语表
+CC - Centralized Cloud
+MCC - Mobile Cloud Computing
+UE - User Equipment
+CN - Core Network
+EC - Edge Computing
+MEC - Mobile Edge Computing
+QoS - Quality of Service 
+C-RAN - Cloud Radio Access Network
+ETSI - European Telecommunications Standard Institute 
+**VM - Virtual Machine**
+eNB - evolved Node B 
+SCeNB - Small Cell eNB  [ (Good Explanation to eNB and SCeNB) ](https://www.gyantoday.com/what-are-differences-of-enodeb-home-enodeb-macro-enodeb-femto-cell-small-cell-pico-cell-and-micro-cell/)
+**NFV - Network Function Virtualization**
+**SDN - Software Defined Network**
+CO - Computation Offloading
+CDG - Component Dependency Graph -->
+
+<h1 id="Beyond-Polarity-Interpretable-Financial-Sentiment-Analysis-with-Hierarchical-Query-driven-Attention-IJCAI-2018"><a href="#Beyond-Polarity-Interpretable-Financial-Sentiment-Analysis-with-Hierarchical-Query-driven-Attention-IJCAI-2018" class="headerlink" title="Beyond Polarity: Interpretable Financial Sentiment Analysis with Hierarchical Query-driven Attention (IJCAI 2018)"></a>Beyond Polarity: Interpretable Financial Sentiment Analysis with Hierarchical Query-driven Attention (IJCAI 2018)</h1><ul>
+<li>Topic<br>  Financial Sentiment Analysis (FSA), 金融情感分析</li>
+<li>Motivations<ul>
+<li>现存大多数FSA方法只输出结果(positive, negative, neutral), 然而金融决策中<strong>对结果的解释</strong>是同等甚至更重要的；</li>
+<li>现存大多数FSA方法在任务对于<strong>个性和多样性分析</strong>方面做得不够好，比如给出同样一份金融文本，对于不同的任务(task)和不同的用户(user)应该有不同的分析结果。</li>
+</ul>
+</li>
+<li>Challenges<ul>
+<li>金融文本中的隐含情感通常来源于不同的视角（宏观经济信息，微观结构因素，面向事件，特定公司），导致两句话中虽然可能出现同样的词汇，但是却隐含了完全不同的情感。</li>
+</ul>
+</li>
+<li>Contributions<br>  FISHQA (FInancial Sentiment anal- ysis network with Hierarchical Query-driven Attention)<ul>
+<li>提出<strong>层次化的网络结构</strong>，先通过单词构造句子的特征，再将句子的特征聚合成文本特征，<strong>本质上是更细粒度的分析，减少错误</strong>；</li>
+<li>加入<strong>query-driven attention机制</strong>，增强模型的个性和多样性分析能力以及模型的可解释性。</li>
+</ul>
+</li>
+</ul>
+<h1 id="Reading-Like-HER-Human-Reading-Inspired-Extractive-Summarization-EMNLP2019"><a href="#Reading-Like-HER-Human-Reading-Inspired-Extractive-Summarization-EMNLP2019" class="headerlink" title="Reading Like HER: Human Reading Inspired Extractive Summarization (EMNLP2019)"></a>Reading Like HER: Human Reading Inspired Extractive Summarization (EMNLP2019)</h1><ul>
+<li>Topic<br>  Extractive Text Summarization (ETS), 文本信息提取</li>
+<li>Motivations<ul>
+<li>现存大多数ETS方法忽视了人类的阅读认知过程，而人类在阅读时具有很强的提取关键信息能力。</li>
+</ul>
+</li>
+<li>Challenges<ul>
+<li>难以对母语使用者千差万别的阅读习惯进行建模 -&gt; 对外语使用者的“三阶段”阅读习惯进行建模。</li>
+</ul>
+</li>
+<li>Contributions<br>  HER (Human-bEing-Reading inspired ex- tractive summarization)<ul>
+<li>将问题形式化为包括<strong>略读和精读</strong>两个阶段的<strong>上下文赌博机(Contextual Bandit)</strong>问题；</li>
+<li>针对略读阶段，使用一个<strong>层次化的网络结构</strong>，先对整个文本编码，再捕获每个段落的特征；针对精读阶段，使用一个<strong>Contextual bandit agent</strong>来灵活选择特定的句子，并且用<strong>自适应终止机制</strong>来控制句子的数量；</li>
+<li>在CNN和DailyMail数据集上完成实验，结果表明提出的模型相比SOTA模型的优越性。</li>
+</ul>
+</li>
+</ul>
+<h1 id="Unsupervised-Neural-Aspect-Extraction-with-Sememes-IJCAI-2019"><a href="#Unsupervised-Neural-Aspect-Extraction-with-Sememes-IJCAI-2019" class="headerlink" title="Unsupervised Neural Aspect Extraction with Sememes (IJCAI 2019)"></a>Unsupervised Neural Aspect Extraction with Sememes (IJCAI 2019)</h1><ul>
+<li>Topic<br>  Aspect Extraction (AE)</li>
+<li>Motivation<ul>
+<li>传统的基于LDA的方法有以下缺陷：<ol>
+<li>因为话题分布差异度不高，所以利用word co-occurence来预测aspect很困难；</li>
+<li>基于LDA方法的话题分布估计限制了concise review的表现。</li>
+</ol>
+</li>
+<li>基于深度学习的方法有以下缺陷：<ol>
+<li>现存模型基本依赖于word co-occurence统计，较为忽视同一个词语在不同语境中的不同含义和地位；</li>
+<li>现存模型对domain-specific的词语的偏向性很高，而对general的词语偏向性过低；</li>
+<li>现存模型更倾向于提取频率更高的词语，较为忽视低频词语；</li>
+</ol>
+</li>
+<li>人类很擅长利用外部的语义知识来进行aspect extraction。</li>
+</ul>
+</li>
+<li>Challenges<ul>
+<li>词语含义多种多样，文本长度较短。</li>
+</ul>
+</li>
+<li>Contributions<br>  AE-SA(Aspect Extraction with Sememe Attentions), AE-CSA(Aspect Extraction via Context- enhanced Sememe Attentions)<ul>
+<li>利用<strong>词汇语义(lexical semantics)</strong>来挖掘隐藏在各类表达方式之后的语义信息;</li>
+<li>提出<strong>sememe attention structure</strong>来表示词语的含义，这种方式很有利于低频的aspect;</li>
+<li>将<strong>RNN</strong>结构加入sememe attention, 更好的学习上下文的序列信息，提高了模型的准确率。</li>
+</ul>
+</li>
+</ul>
+<h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><ul>
+<li>几篇文章的动机来源有两个：1. 解决目前工业界中存在的实际问题（第一、三篇）; 2. 从<strong>人类认知科学的理论应用于深度学习模型</strong>这个角度出发，提出新的问题（第二篇）。我认为第一个动机产生的成果具有很强的落地应用前景，而第二个动机产生的成果是目前的人工智能社区非常关注的，有聚沙成塔的趋势。毕竟最后想要人工智能发展到真正的人类智能，就离不开认知科学的理论支持。可以说，文章起源于问题，问题驱动研究。</li>
+<li>每篇文章的核心贡献都是用某种方法来解决所提出的问题。上面提到，问题可老可新，而方法同样也是可老可新。这些方法并不一定是完全崭新的方法，而是可能由一些老方法加入特定的机制后组成的、能很好解决问题的方法。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/2020-08-12-dataDistri/" class="archive-article-date">
-  	<time datetime="2020-04-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/2020-08-12-dataDistri/">Cost-Effective App Data Distribution in EdgeComputing 论文笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">边缘计算</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/26/2020-04-26-Picgo/" class="archive-article-date">
-  	<time datetime="2020-04-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/26/2020-04-26-Picgo/">七牛云图床转Github图床</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">博客配置</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/25/2020-03-25-DFS/" class="archive-article-date">
-  	<time datetime="2020-03-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/25/2020-03-25-DFS/">初级深度优先搜索(DFS)与回溯</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">搜索</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/21/2020-03-21-qsort/" class="archive-article-date">
-  	<time datetime="2020-03-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/21/2020-03-21-qsort/">快速排序</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/13/2020-03-13-WSL/" class="archive-article-date">
-  	<time datetime="2020-03-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/13/2020-03-13-WSL/">WSL大法好</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/06/2020-03-06-NN/" class="archive-article-date">
-  	<time datetime="2020-03-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/06/2020-03-06-NN/">初探神经网络</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -413,106 +339,172 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">神经网络</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/22/2020-02-22-AllinAI/" class="archive-article-date">
-  	<time datetime="2020-02-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/22/2020-02-22-AllinAI/">是否应该 All in AI</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文笔记</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://uestcljx.github.io/2020/09/08/2020-09-08-financial/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/18/2020-02-18-helloworld/" class="archive-article-date">
-  	<time datetime="2020-02-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/25/2020-07-25-Question/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">提问的智慧-笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/18/2020-02-18-helloworld/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Beyond-Polarity-Interpretable-Financial-Sentiment-Analysis-with-Hierarchical-Query-driven-Attention-IJCAI-2018"><span class="toc-number">2.</span> <span class="toc-text">Beyond Polarity: Interpretable Financial Sentiment Analysis with Hierarchical Query-driven Attention (IJCAI 2018)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reading-Like-HER-Human-Reading-Inspired-Extractive-Summarization-EMNLP2019"><span class="toc-number">3.</span> <span class="toc-text">Reading Like HER: Human Reading Inspired Extractive Summarization (EMNLP2019)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Unsupervised-Neural-Aspect-Extraction-with-Sememes-IJCAI-2019"><span class="toc-number">4.</span> <span class="toc-text">Unsupervised Neural Aspect Extraction with Sememes (IJCAI 2019)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Summary"><span class="toc-number">5.</span> <span class="toc-text">Summary</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "RXk5cxUXPCYzrnEFbxM6EUEH-gzGzoHsz",
+            app_key: "aqV8PeavEMHrl4u8lVemUlfR",
+            placeholder: "欢迎留言😋",
+            path:window.location.pathname, 
+            avatar:"retro"
+        });
+    }
+    // document.body.addEventListener('click', function(e) {
+    // if (e.target.classList.contains('vsubmit')) {
+    //     const email = document.querySelector('input[type=email]');
+    //     const nick = document.querySelector('input[name=nick]');
+    //     const reg = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    //     if (!email.value || !nick.value || !reg.test(email.value)) {
+    //         const str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
+    //         const vmark = document.querySelector('.vmark');
+    //         vmark.innerHTML = str;
+    //         vmark.style.display = 'block';
+
+    //         setTimeout(function() {
+    //             vmark.style.display = 'none';
+    //             vmark.innerHTML = '';
+    //         }, 2500);
+    //     }
+    // }
+    // });
+</script>
+
+  </section>
+
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -546,8 +538,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
