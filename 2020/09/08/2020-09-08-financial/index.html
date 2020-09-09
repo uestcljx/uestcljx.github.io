@@ -16,7 +16,7 @@
 <meta property="og:description" content="Introduction&amp;emsp;&amp;emsp;本文列举了中科院计算所MLDM大组-敖翔老师小组在金融文本情感分析(Financial Text Analysis)方向发表的几篇论文的动机、挑战和贡献，并提出了自己对这个方向研究思路的理解。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-09T08:32:30.592Z">
+<meta property="article:modified_time" content="2020-09-09T09:29:20.937Z">
 <meta property="article:author" content="Jiangxin-Li">
 <meta property="article:tag" content="深度学习">
 <meta property="article:tag" content="神经网络">
@@ -274,7 +274,7 @@ CDG - Component Dependency Graph -->
 <h1 id="Reading-Like-HER-Human-Reading-Inspired-Extractive-Summarization-EMNLP2019"><a href="#Reading-Like-HER-Human-Reading-Inspired-Extractive-Summarization-EMNLP2019" class="headerlink" title="Reading Like HER: Human Reading Inspired Extractive Summarization (EMNLP2019)"></a>Reading Like HER: Human Reading Inspired Extractive Summarization (EMNLP2019)</h1><ul>
 <li>Topic<br>  Extractive Text Summarization (ETS), 文本信息提取</li>
 <li>Motivations<ul>
-<li>现存大多数ETS方法忽视了人类的阅读认知过程，而人类在阅读时具有很强的提取关键信息能力。</li>
+<li>现存大多数ETS方法忽视了人类的阅读认知过程，而<strong>人类在阅读时具有很强的提取关键信息能力</strong>。</li>
 </ul>
 </li>
 <li>Challenges<ul>
@@ -292,17 +292,17 @@ CDG - Component Dependency Graph -->
 <li>Topic<br>  Aspect Extraction (AE)</li>
 <li>Motivation<ul>
 <li>传统的基于LDA的方法有以下缺陷：<ol>
-<li>因为话题分布差异度不高，所以利用word co-occurence来预测aspect很困难；</li>
+<li>因为<strong>话题分布差异度不高</strong>，所以利用word co-occurence来预测aspect很困难；</li>
 <li>基于LDA方法的话题分布估计限制了concise review的表现。</li>
 </ol>
 </li>
 <li>基于深度学习的方法有以下缺陷：<ol>
-<li>现存模型基本依赖于word co-occurence统计，较为忽视同一个词语在不同语境中的不同含义和地位；</li>
-<li>现存模型对domain-specific的词语的偏向性很高，而对general的词语偏向性过低；</li>
-<li>现存模型更倾向于提取频率更高的词语，较为忽视低频词语；</li>
+<li>现存模型基本依赖于word co-occurence统计，较为<strong>忽视同一个词语在不同语境中的不同含义和地位</strong>；</li>
+<li>现存模型对domain-specific的词语的偏向性很高，而<strong>对general的词语偏向性过低</strong>；</li>
+<li>现存模型更倾向于提取频率更高的词语，较为<strong>忽视低频词语</strong>；</li>
 </ol>
 </li>
-<li>人类很擅长利用外部的语义知识来进行aspect extraction。</li>
+<li><strong>人类很擅长利用外部的语义知识来进行aspect extraction</strong>。</li>
 </ul>
 </li>
 <li>Challenges<ul>
@@ -310,15 +310,19 @@ CDG - Component Dependency Graph -->
 </ul>
 </li>
 <li>Contributions<br>  AE-SA(Aspect Extraction with Sememe Attentions), AE-CSA(Aspect Extraction via Context- enhanced Sememe Attentions)<ul>
-<li>利用<strong>词汇语义(lexical semantics)</strong>来挖掘隐藏在各类表达方式之后的语义信息;</li>
-<li>提出<strong>sememe attention structure</strong>来表示词语的含义，这种方式很有利于低频的aspect;</li>
-<li>将<strong>RNN</strong>结构加入sememe attention, 更好的学习上下文的序列信息，提高了模型的准确率。</li>
+<li>利用<strong>词汇语义(lexical semantics)</strong>来挖掘<strong>隐藏在各类表达方式之后的语义信息</strong>;</li>
+<li>提出<strong>sememe attention structure</strong>来表示词语的含义，这种方式很<strong>有利于低频的aspect</strong>;</li>
+<li>将<strong>RNN</strong>结构加入sememe attention, <strong>更好的学习上下文的序列信息</strong>，提高了模型的准确率。</li>
 </ul>
 </li>
 </ul>
 <h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><ul>
-<li>几篇文章的动机来源有两个：1. 解决目前工业界中存在的实际问题（第一、三篇）; 2. 从<strong>人类认知科学的理论应用于深度学习模型</strong>这个角度出发，提出新的问题（第二篇）。我认为第一个动机产生的成果具有很强的落地应用前景，而第二个动机产生的成果是目前的人工智能社区非常关注的，有聚沙成塔的趋势。毕竟最后想要人工智能发展到真正的人类智能，就离不开认知科学的理论支持。可以说，文章起源于问题，问题驱动研究。</li>
-<li>每篇文章的核心贡献都是用某种方法来解决所提出的问题。上面提到，问题可老可新，而方法同样也是可老可新。这些方法并不一定是完全崭新的方法，而是可能由一些老方法加入特定的机制后组成的、能很好解决问题的方法。</li>
+<li>这几篇文章的动机来源有两个：<ol>
+<li>解决目前工业界中存在的实际问题（第一、三篇）; </li>
+<li>从<strong>人类认知科学的理论应用于深度学习模型</strong>这个角度出发，提出新的问题（第二、三篇）。我认为第一个动机产生的成果具有很强的落地应用前景，而第二个动机产生的成果是目前的人工智能社区非常关注的，有聚沙成塔的趋势。毕竟最后想要人工智能发展到真正的人类智能，就离不开认知科学的理论支持。<br>可以说，文章起源于问题，问题驱动研究。</li>
+</ol>
+</li>
+<li>每篇文章的核心贡献都是用某种方法来解决所提出的问题。上面提到，问题可老可新，而方法同样也是可老可新。这些方法并不一定是完全崭新的方法，而是<strong>*可能由一些老方法加入特定的机制后组成的、能很好解决问题的方法</strong>。</li>
 </ul>
 
       
