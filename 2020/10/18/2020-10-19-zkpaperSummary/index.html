@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://uestcljx.github.io">
-  <title>WSL大法好 | Jiangxin-Li</title>
+  <title>Summary of Kai Zhang&#39;s Publications | Jiangxin-Li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我为什么想到用Linux系统？因为我想为这个网站加一个photos plugin. 而这种photos plugin需要一个依赖库。当我在Windows系统下尝试安装这个依赖库多次失败后，卑微的我决定求助于Linux系统Orz。。。 众所周知, Linux系统可以下载很多无法兼容Windows系统的Linux专用软件，而且安装过程极其极其简单，也有极小极小的概率出错（相比Windows）。这">
+  <meta name="description" content="IntroductionThis article summarized the system works that Kai Zhang, Fudan University have participated as main contributor. Some terms of these works are also presented.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WSL大法好">
-<meta property="og:url" content="https://uestcljx.github.io/2020/03/13/2020-03-13-WSL/index.html">
+<meta property="og:title" content="Summary of Kai Zhang&#39;s Publications">
+<meta property="og:url" content="https://uestcljx.github.io/2020/10/18/2020-10-19-zkpaperSummary/index.html">
 <meta property="og:site_name" content="Jiangxin-Li">
-<meta property="og:description" content="我为什么想到用Linux系统？因为我想为这个网站加一个photos plugin. 而这种photos plugin需要一个依赖库。当我在Windows系统下尝试安装这个依赖库多次失败后，卑微的我决定求助于Linux系统Orz。。。 众所周知, Linux系统可以下载很多无法兼容Windows系统的Linux专用软件，而且安装过程极其极其简单，也有极小极小的概率出错（相比Windows）。这">
+<meta property="og:description" content="IntroductionThis article summarized the system works that Kai Zhang, Fudan University have participated as main contributor. Some terms of these works are also presented.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://uestcljx.github.io/assets/fig/wsl.jpg">
-<meta property="article:published_time" content="2020-03-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-05-08T10:12:00.742Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/%E8%AE%BA%E6%96%87%E6%80%BB%E7%BB%93.png">
+<meta property="article:published_time" content="2020-10-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-10-19T03:35:00.013Z">
 <meta property="article:author" content="Jiangxin-Li">
-<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="论文笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://uestcljx.github.io/assets/fig/wsl.jpg">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/uestcljx/figbed/master/img/%E8%AE%BA%E6%96%87%E6%80%BB%E7%BB%93.png">
   
   
     <link rel="icon" href="/assets/img/favicon.png">
@@ -174,14 +174,14 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2020-03-13-WSL" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-2020-10-19-zkpaperSummary" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      WSL大法好
+      Summary of Kai Zhang&#39;s Publications
     </h1>
   
 
@@ -196,26 +196,46 @@ var _hmt = _hmt || [];
         </a>
         
         
-        <a href="/2020/03/13/2020-03-13-WSL/" class="archive-article-date">
-  	<time datetime="2020-03-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
+        <a href="/2020/10/18/2020-10-19-zkpaperSummary/" class="archive-article-date">
+  	<time datetime="2020-10-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-18</time>
 </a>
         
       </header>
     
         <!-- 目录内容 -->
-    <!-- 		 -->
+    <!-- 
+      <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+      <strong class="toc-title">文章目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Term-Explanation"><span class="toc-number">2.</span> <span class="toc-text">Term Explanation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Works-Summary"><span class="toc-number">3.</span> <span class="toc-text">Works Summary</span></a></li></ol>
+          </div>
+    <script type="text/javascript">
+    function showToc(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:block");
+      show_toc_btn.setAttribute("style","display:none");
+      };
+    function showBtn(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:none");
+      show_toc_btn.setAttribute("style","display:block");
+      };
+    </script>
+        		 -->
     <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <br>
-
-
-<h2 id="我为什么想到用Linux系统？"><a href="#我为什么想到用Linux系统？" class="headerlink" title="我为什么想到用Linux系统？"></a>我为什么想到用Linux系统？</h2><p>因为我想为这个网站加一个photos plugin. 而这种photos plugin需要一个依赖库。当我在Windows系统下尝试安装这个依赖库多次失败后，卑微的我决定求助于Linux系统Orz。。。</p>
-<p><del>众所周知,</del> Linux系统可以下载很多无法兼容Windows系统的Linux专用软件，而且安装过程极其极其简单，也有极小极小的概率出错（相比Windows）。这是Linux系统的巨大优势之一。</p>
-<h2 id="双系统？虚拟机？WSL"><a href="#双系统？虚拟机？WSL" class="headerlink" title="双系统？虚拟机？WSL!"></a>双系统？虚拟机？WSL!</h2><p>目前在Windows系统上想使用Linux系统，主流方法是双系统或者虚拟机。然鹅，双系统配置太麻烦，有点小题大做；而虚拟机因为只能分到较少的资源，所以卡顿很明显。还有些在Windows上模拟Linux的封装器如Git Bash，CYGWIN等也不够完善，总是会有各种各样的issues。<br>于是，为了解决各种不足，Windows推出了大杀器，可以说是目前最好的解决方案之一。它就是本文的主角：WSL。</p>
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>This article summarized the system works that <a href="https://kay21s.github.io/" target="_blank" rel="noopener">Kai Zhang, Fudan University</a> have participated as main contributor. Some terms of these works are also presented.</p>
 <a id="more"></a>
-<p><img src="/assets/fig/wsl.jpg" alt="WSL原理图"><br>WSL (Windows Subsystem for Linux) 是在Windows系统上的一个应用，也就是Linux子系统。与其他方案不同，WSL不是像Git Bash或者CYGWIN之类的封装器，它能够直接在Windows上运行本地Linux发行版(Ubuntu, CentOS…)。这样可以克服其他方案存在的各种问题。我们可以利用WSL下载各种开源程序(npm,gem…)到Linux的文件系统。<br>WSL的核心原理是什么呢？以WSL运行Ubuntu为例。WSL能让Ubuntu读写Windows上的文件，而Windows只能读而不能写Ubuntu上的文件。</p>
-<h2 id="如何使用WSL"><a href="#如何使用WSL" class="headerlink" title="如何使用WSL?"></a>如何使用WSL?</h2><p>利用WSL的核心原理，一种理想的workflow诞生了——自己写的代码存Windows，下载的程序存Ubuntu。不能把自己写的代码存到Ubuntu吗？不能。因为Windows不能写Ubuntu上的文件。除非你习惯用Vim等Linux支持的编辑器，否则还是老老实实在Windows上用VSCode/IDEs写代码吧…那，不能把下载的程序存Windows吗？这就回到了开始的问题，在Windows环境里下载、运行各种程序很麻烦也容易出错。<br>这里，附上大神编写的WSL快速入门指南:<br><a href="https://github.com/michaeltreat/Windows-Subsystem-For-Linux-Setup-Guide" target="_blank" rel="noopener">WSL入门教程(全英文)</a></p>
+
+<h1 id="Term-Explanation"><a href="#Term-Explanation" class="headerlink" title="Term Explanation"></a>Term Explanation</h1><p>query: a request for information<br>resource contention: a conflict over access to a shared resource<br>analytical query: combine data from multiple queries from the same or differing data sources into one result set<br>analytical database: An analytical database stores and manages big data, including business, market and customer data for business intelligence (BI) analysis<br>selectivity: a measure of how much the index narrows the search for values. A lower selectivity value means fewer rows to scan and filter<br>index scan: scan the index (select a small set of data)<br>sequential scan: scan the entire table (select a lot of data)<br>bitmap scan: a single block is only used once during a scan (between index and sequential scan)</p>
+<h1 id="Works-Summary"><a href="#Works-Summary" class="headerlink" title="Works Summary"></a>Works Summary</h1><p>Some information of these system works are listed as a table below. The main areas of his work is database &amp; network system. These works mainly focuses on the problem of hardware underutilization, latency in the strict deadline scene, mismatches of current structure to actual demands and the tradeoffs among conventional methods. It can be seen that, in terms of system work, it is very important to strongly explain why we should design such a system/structure instead of just using conventional one. In addition, I think the contributions of system work are really hardcore.<br><img src="https://raw.githubusercontent.com/uestcljx/figbed/master/img/%E8%AE%BA%E6%96%87%E6%80%BB%E7%BB%93.png" alt="Paper Summary"></p>
 
       
 
@@ -229,7 +249,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文笔记</a>
         		</li>
       		
 		</ul>
@@ -285,7 +305,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://uestcljx.github.io/2020/03/13/2020-03-13-WSL/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://uestcljx.github.io/2020/10/18/2020-10-19-zkpaperSummary/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -299,18 +319,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2020/03/21/2020-03-21-qsort/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          快速排序
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/03/06/2020-03-06-NN/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">初探神经网络</div>
+    <a href="/2020/09/18/2020-09-18-researchNotes/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">论文笔记模板</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -329,6 +340,19 @@ var _hmt = _hmt || [];
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Term-Explanation"><span class="toc-number">2.</span> <span class="toc-text">Term Explanation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Works-Summary"><span class="toc-number">3.</span> <span class="toc-text">Works Summary</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
